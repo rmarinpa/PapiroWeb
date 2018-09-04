@@ -43,6 +43,9 @@
                                         <div class="custom-control custom-checkbox mb-3">
                                             <!-- Checkbox-->
                                             <asp:CheckBox ID="RememberMe" runat="server" Text="Recordármelo la próxima vez." />
+
+                                        </div>
+                                        <div class="form-label-group">
                                             <asp:Literal ID="FailureText" runat="server" EnableViewState="False"></asp:Literal>
                                         </div>
                                         <!-- Boton -->

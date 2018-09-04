@@ -74,7 +74,9 @@
                 <asp:TextBox ID="txtCantidad" CssClass="form-control" runat="server"></asp:TextBox>
             </div>
         </div>
-        <asp:Button ID="Button1" CssClass="btn btn-primary" runat="server" Text="Comprar" />
+        <asp:Button ID="btnComprar" CssClass="btn btn-primary" runat="server" Text="Comprar" />
+        <i class="fa fa-shopping-cart"></i>
+        <asp:Button ID="btnGenerar" CssClass="btn btn-primary" runat="server" Text="Generar compra" />
         <i class="fa fa-shopping-cart"></i>
     </div>
 </asp:Content>
