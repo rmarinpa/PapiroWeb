@@ -1,12 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Web/Administracion/LayoutAdmin.Master" AutoEventWireup="true" CodeBehind="Compras.aspx.cs" Inherits="PapiroWeb.Web.Administracion.Compras" %>
+﻿<%@ Page Title="Compras" Language="C#" MasterPageFile="~/Web/Administracion/LayoutAdmin.Master" AutoEventWireup="true" CodeBehind="Compras.aspx.cs" Inherits="PapiroWeb.Web.Administracion.Compras" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
+    <script src="../../Scripts/Reloj.js"></script>
 
     <div class="container">
-        <h2>Modulo de compras</h2>
-
-
+        <h2 class="text-center">Modulo de compras</h2>
         <div class="row">
             <div class="col align-self-start">
                 <label for="lblCodigo">Usuario</label>

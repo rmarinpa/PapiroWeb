@@ -141,6 +141,7 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Master.css" />
     <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -168,9 +169,14 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="Web\Administracion\AutorizarFACT.aspx" />
+    <Content Include="Web\Administracion\AutorizarGD.aspx" />
+    <Content Include="Web\Administracion\AutorizarNotaCredito.aspx" />
+    <Content Include="Web\Administracion\AutorizarPedidoGD.aspx" />
     <Content Include="Web\Administracion\Clientes.aspx" />
     <Content Include="Web\Administracion\ClientesEImportacion.aspx" />
     <Content Include="Web\Administracion\Compras.aspx" />
+    <Content Include="Web\Administracion\ConfigUsuario.aspx" />
     <Content Include="Web\Administracion\MenuAdministracion.aspx" />
     <Content Include="Web\Administracion\Productos.aspx" />
     <Content Include="Login.aspx" />
@@ -237,6 +243,34 @@
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Web\Administracion\AutorizarFACT.aspx.cs">
+      <DependentUpon>AutorizarFACT.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Administracion\AutorizarFACT.aspx.designer.cs">
+      <DependentUpon>AutorizarFACT.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Administracion\AutorizarGD.aspx.cs">
+      <DependentUpon>AutorizarGD.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Administracion\AutorizarGD.aspx.designer.cs">
+      <DependentUpon>AutorizarGD.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Administracion\AutorizarNotaCredito.aspx.cs">
+      <DependentUpon>AutorizarNotaCredito.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Administracion\AutorizarNotaCredito.aspx.designer.cs">
+      <DependentUpon>AutorizarNotaCredito.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Administracion\AutorizarPedidoGD.aspx.cs">
+      <DependentUpon>AutorizarPedidoGD.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Administracion\AutorizarPedidoGD.aspx.designer.cs">
+      <DependentUpon>AutorizarPedidoGD.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Web\Administracion\Clientes.aspx.cs">
       <DependentUpon>Clientes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -257,6 +291,13 @@
     </Compile>
     <Compile Include="Web\Administracion\Compras.aspx.designer.cs">
       <DependentUpon>Compras.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Administracion\ConfigUsuario.aspx.cs">
+      <DependentUpon>ConfigUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Administracion\ConfigUsuario.aspx.designer.cs">
+      <DependentUpon>ConfigUsuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="Web\Administracion\LayoutAdmin.Master.cs">
       <DependentUpon>LayoutAdmin.Master</DependentUpon>

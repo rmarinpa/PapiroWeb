@@ -1,9 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Web/Administracion/LayoutAdmin.Master" AutoEventWireup="true" CodeBehind="ClientesEImportacion.aspx.cs" Inherits="PapiroWeb.Web.Administracion.ClientesEImportacion" %>
+﻿<%@ Page Title="Clientes e importación" Language="C#" MasterPageFile="~/Web/Administracion/LayoutAdmin.Master" AutoEventWireup="true" CodeBehind="ClientesEImportacion.aspx.cs" Inherits="PapiroWeb.Web.Administracion.ClientesEImportacion" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <div class="container">
-        <h2>Registro de clientes - Importación</h2>
+        <h2 class="text-center">Registro de clientes - Importación</h2>
         <div class="form-row">
             <div class="form-group">
                 <div class="form-group">
@@ -14,7 +14,7 @@
             </div>
         </div>
 
-        <h2>Table de ítems registrados</h2>
+        <h2 class="text-center">Tabla de ítems registrados</h2>
         <div class="form-row">
             <div class="form-group">
                 <asp:GridView ID="gvItems" CssClass="form-control" runat="server"></asp:GridView>

@@ -1,11 +1,11 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Web/Administracion/LayoutAdmin.Master" AutoEventWireup="true" CodeBehind="Clientes.aspx.cs" Inherits="PapiroWeb.Web.Administracion.Clientes" %>
+﻿<%@ Page Title="Clientes" Language="C#" MasterPageFile="~/Web/Administracion/LayoutAdmin.Master" AutoEventWireup="true" CodeBehind="Clientes.aspx.cs" Inherits="PapiroWeb.Web.Administracion.Clientes" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
+    
         <div class="container">
-            <h2>Información general</h2>
+            <h2 class="text-center">Información general</h2>
+            <hr />
             <div class="form-row">
-
                 <div class="form-group col-md-6">
                     <label for="lblRut">Rut Empresa</label>
                     <asp:TextBox ID="txtRut" CssClass="form-control" runat="server"></asp:TextBox>
@@ -37,7 +37,7 @@
                 </div>
             </div>
             <hr />
-            <h2>Información contacto comercial</h2>
+            <h2 class="text-center">Información contacto comercial</h2>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="lblNombre">Nombre</label>
@@ -57,7 +57,7 @@
                 </div>
             </div>
             <hr />
-            <h2>Información contacto pago proveedores</h2>
+            <h2 class="text-center">Información contacto pago proveedores</h2>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="lblNombre">Nombre</label>
@@ -81,7 +81,7 @@
                 </div>
             </div>
             <hr />
-            <h2>Información contacto despacho</h2>
+            <h2 class="text-center">Información contacto despacho</h2>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="lblNombre">Nombre</label>
@@ -109,7 +109,7 @@
                 </div>
             </div>
             <hr />
-            <h2>Condiciones de pago</h2>
+            <h2 class="text-center">Condiciones de pago</h2>
             <div class="form-row">
                 <div class="form-group col-md-2">
                     <label for="lblPago">Condición de pago</label>
@@ -137,7 +137,7 @@
                 </div>
             </div>
             <hr />
-            <h2>Ejecutivos</h2>
+            <h2 class="text-center">Ejecutivos</h2>
             <div class="form-row">
                 <div class="form-group col-md-2">
                     <label for="lblDigital">Ejec. Digital</label>
@@ -165,7 +165,7 @@
                 </div>
             </div>
             <hr />
-            <h2>Fechas y observaciones</h2>
+            <h2 class="text-center">Fechas y observaciones</h2>
             <div class="form-row">
                 <div class="form-group col-md-12">
                     <label for="lblObservaciones">Observaciones</label>
