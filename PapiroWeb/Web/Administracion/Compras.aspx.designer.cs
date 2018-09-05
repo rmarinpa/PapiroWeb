@@ -121,13 +121,13 @@ namespace PapiroWeb.Web.Administracion {
         protected global::System.Web.UI.WebControls.TextBox TextBox2;
         
         /// <summary>
-        /// Control TextBox3.
+        /// Control txtCantidad.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox3;
+        protected global::System.Web.UI.WebControls.TextBox txtCantidad;
         
         /// <summary>
         /// Control TextBox4.
@@ -139,13 +139,13 @@ namespace PapiroWeb.Web.Administracion {
         protected global::System.Web.UI.WebControls.TextBox TextBox4;
         
         /// <summary>
-        /// Control txtCantidad.
+        /// Control txtItems.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCantidad;
+        protected global::System.Web.UI.WebControls.TextBox txtItems;
         
         /// <summary>
         /// Control btnComprar.

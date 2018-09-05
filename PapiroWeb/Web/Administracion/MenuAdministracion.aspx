@@ -4,10 +4,11 @@
 
     <hr />
     <div class="container">
-        <h3>Bienvenido:</h3>
-        <p>
+        <div class="form-row">
+            <h3>Bienvenido:</h3>
+            <i class="fa fa-user-circle"></i>
             <asp:LoginName ID="LoginName1" runat="server" />
-        </p>
+        </div>
         <div class="row">
             <div class="card-deck">
                 <div class="card">

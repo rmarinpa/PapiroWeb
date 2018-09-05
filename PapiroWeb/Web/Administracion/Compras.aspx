@@ -15,8 +15,6 @@
                 <div id="reloj" style="font-size: 20px;"></div>
             </div>
         </div>
-
-
         <div class="form-row">
             <div class="form-group col-md-2">
                 <h5>Busqueda </h5>
@@ -61,15 +59,15 @@
             </div>
             <div class="form-group col-md-2">
                 <label for="lblCodigo">Cantidad</label>
-                <asp:TextBox ID="TextBox3" CssClass="form-control" Enabled="false" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtCantidad" CssClass="form-control" Enabled="false" runat="server"></asp:TextBox>
             </div>
             <div class="form-group col-md-2">
                 <label for="lblCodigo">Stock</label>
                 <asp:TextBox ID="TextBox4" CssClass="form-control" Enabled="false" runat="server"></asp:TextBox>
             </div>
             <div class="form-group col-md-1">
-                <label for="lblCodigo">Cantidad</label>
-                <asp:TextBox ID="txtCantidad" CssClass="form-control" runat="server"></asp:TextBox>
+                <label for="lblCodigo">N° de Items</label>
+                <asp:TextBox ID="txtItems" CssClass="form-control" runat="server"></asp:TextBox>
             </div>
         </div>
         <asp:Button ID="btnComprar" CssClass="btn btn-primary" runat="server" Text="Comprar" />

@@ -178,6 +178,7 @@
     <Content Include="Web\Administracion\Compras.aspx" />
     <Content Include="Web\Administracion\ConfigUsuario.aspx" />
     <Content Include="Web\Administracion\MenuAdministracion.aspx" />
+    <Content Include="Web\Administracion\NotasDePedidos.aspx" />
     <Content Include="Web\Administracion\Productos.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Scripts\esm\popper.min.js.map" />
@@ -194,6 +195,7 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Web\Administracion\RegistroLlamadas.aspx" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -313,6 +315,13 @@
     <Compile Include="Web\Administracion\MenuAdministracion.aspx.designer.cs">
       <DependentUpon>MenuAdministracion.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Web\Administracion\NotasDePedidos.aspx.cs">
+      <DependentUpon>NotasDePedidos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Administracion\NotasDePedidos.aspx.designer.cs">
+      <DependentUpon>NotasDePedidos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Web\Administracion\Productos.aspx.cs">
       <DependentUpon>Productos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -326,6 +335,13 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Administracion\RegistroLlamadas.aspx.cs">
+      <DependentUpon>RegistroLlamadas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Administracion\RegistroLlamadas.aspx.designer.cs">
+      <DependentUpon>RegistroLlamadas.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
