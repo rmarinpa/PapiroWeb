@@ -6,13 +6,13 @@
 <head runat="server">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title></title>
+    <title>Iniciar sesión</title>
     <link href="../../Content/bootstrap.min.css" rel="stylesheet" />
     <script src="../../Scripts/jquery-3.3.1.min.js"></script>
     <script src="../../Scripts/bootstrap.min.js"></script>
     <script src="../../Scripts/umd/popper.min.js"></script>
     <script src="../../Scripts/bootstrap.bundle.min.js"></script>
-    <script src="../../Scripts/Reloj.js"></script>
+    <link href="../Content/LoginStyle.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 </head>
 
@@ -54,11 +54,6 @@
                                         <!-- Otros botones-->
                             </LayoutTemplate>
                         </asp:Login>
-                        <div class="form-label-group">
-                            <label for="lblDepto">Departamento</label>
-                            <asp:DropDownList ID="ddlDepto" CssClass="form-control" runat="server" DataSourceID="SqlDataSource1" DataTextField="NombreDepartamento" DataValueField="IdDepartamento"></asp:DropDownList>
-                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:PapiroWebConnectionString %>" SelectCommand="SELECT * FROM [Departamento]"></asp:SqlDataSource>
-                        </div>
                     </div>
                 </div>
             </div>
