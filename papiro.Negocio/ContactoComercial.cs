@@ -7,9 +7,11 @@ using papiro.DALC;
 
 namespace papiro.Negocio
 {
-    PapiroWebEntities db = new PapiroWebEntities();
+
     public class ContactoComercial
     {
+        PapiroWebEntities db = new PapiroWebEntities();
+
         private int _idContacto;
 
         public int IdContacto
@@ -48,10 +50,6 @@ namespace papiro.Negocio
             set { _idCargo = value; }
         }
 
-        public bool Create()
-        {
-
-        }
 
         /*public bool Create()
         {
