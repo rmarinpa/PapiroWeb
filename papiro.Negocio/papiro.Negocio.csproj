@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Cartera.cs" />
     <Compile Include="Cliente.cs" />
+    <Compile Include="ContactoComercial.cs" />
     <Compile Include="Departamento.cs" />
     <Compile Include="EstadoCliente.cs" />
     <Compile Include="Factura.cs" />

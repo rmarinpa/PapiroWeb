@@ -25,7 +25,13 @@ namespace papiro.DALC
             throw new UnintentionalCodeFirstException();
         }
     
+        public DbSet<Ciudades> Ciudades { get; set; }
+        public DbSet<Clientes> Clientes { get; set; }
+        public DbSet<Comunas> Comunas { get; set; }
+        public DbSet<ContactoComercial> ContactoComercial { get; set; }
         public DbSet<Departamento> Departamento { get; set; }
+        public DbSet<TipoCargo> TipoCargo { get; set; }
+        public DbSet<TipoPago> TipoPago { get; set; }
         public DbSet<Usuario> Usuario { get; set; }
     }
 }

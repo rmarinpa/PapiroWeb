@@ -5,12 +5,64 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="PapiroWebModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Ciudades">
+          <Key>
+            <PropertyRef Name="IdCiudad" />
+          </Key>
+          <Property Name="IdCiudad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreCiudad" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Clientes">
+          <Key>
+            <PropertyRef Name="RutEmpresa" />
+          </Key>
+          <Property Name="RutEmpresa" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="RazonSocial" Type="varchar" MaxLength="50" />
+          <Property Name="Giro" Type="varchar" MaxLength="50" />
+          <Property Name="Direccion" Type="varchar" MaxLength="50" />
+          <Property Name="TelefonoContacto" Type="varchar" MaxLength="50" />
+          <Property Name="IdCiudad" Type="int" Nullable="false" />
+          <Property Name="IdComuna" Type="int" Nullable="false" />
+          <Property Name="IdTipoPago" Type="int" Nullable="false" />
+          <Property Name="IdContactoComercial" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Comunas">
+          <Key>
+            <PropertyRef Name="idComunas" />
+          </Key>
+          <Property Name="idComunas" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreComuna" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="ContactoComercial">
+          <Key>
+            <PropertyRef Name="IdContacto" />
+          </Key>
+          <Property Name="IdContacto" Type="int" Nullable="false" />
+          <Property Name="NombreContacto" Type="varchar" MaxLength="50" />
+          <Property Name="Telefono" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="IdCargo" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="Departamento">
           <Key>
             <PropertyRef Name="IdDepartamento" />
           </Key>
           <Property Name="IdDepartamento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NombreDepartamento" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="NombreDepartamento" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="TipoCargo">
+          <Key>
+            <PropertyRef Name="IdTipoCargo" />
+          </Key>
+          <Property Name="IdTipoCargo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Cargo" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TipoPago">
+          <Key>
+            <PropertyRef Name="IdTipoPago" />
+          </Key>
+          <Property Name="IdTipoPago" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreTipoPago" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Usuario">
           <Key>
@@ -18,8 +70,8 @@
           </Key>
           <Property Name="UserName" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="Password" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="Nombres" Type="varchar" MaxLength="25" Nullable="false" />
-          <Property Name="Apellidos" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Nombres" Type="varchar" MaxLength="25" />
+          <Property Name="Apellidos" Type="varchar" MaxLength="30" />
           <Property Name="IdDepartamento" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK__Usuario__IdDepar__49C3F6B7">
@@ -34,12 +86,98 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Clientes_Ciudades">
+          <End Role="Ciudades" Type="Self.Ciudades" Multiplicity="1" />
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ciudades">
+              <PropertyRef Name="IdCiudad" />
+            </Principal>
+            <Dependent Role="Clientes">
+              <PropertyRef Name="IdCiudad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Clientes_Comunas">
+          <End Role="Comunas" Type="Self.Comunas" Multiplicity="1" />
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Comunas">
+              <PropertyRef Name="idComunas" />
+            </Principal>
+            <Dependent Role="Clientes">
+              <PropertyRef Name="IdComuna" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Clientes_ContactoComercial">
+          <End Role="ContactoComercial" Type="Self.ContactoComercial" Multiplicity="1" />
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContactoComercial">
+              <PropertyRef Name="IdContacto" />
+            </Principal>
+            <Dependent Role="Clientes">
+              <PropertyRef Name="IdContactoComercial" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Clientes_TipoPago">
+          <End Role="TipoPago" Type="Self.TipoPago" Multiplicity="1" />
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoPago">
+              <PropertyRef Name="IdTipoPago" />
+            </Principal>
+            <Dependent Role="Clientes">
+              <PropertyRef Name="IdTipoPago" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContactoComercial_TipoCargo">
+          <End Role="TipoCargo" Type="Self.TipoCargo" Multiplicity="1" />
+          <End Role="ContactoComercial" Type="Self.ContactoComercial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoCargo">
+              <PropertyRef Name="IdTipoCargo" />
+            </Principal>
+            <Dependent Role="ContactoComercial">
+              <PropertyRef Name="IdCargo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="PapiroWebModelStoreContainer">
+          <EntitySet Name="Ciudades" EntityType="Self.Ciudades" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Clientes" EntityType="Self.Clientes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Comunas" EntityType="Self.Comunas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ContactoComercial" EntityType="Self.ContactoComercial" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Departamento" EntityType="Self.Departamento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoCargo" EntityType="Self.TipoCargo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoPago" EntityType="Self.TipoPago" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__Usuario__IdDepar__49C3F6B7" Association="Self.FK__Usuario__IdDepar__49C3F6B7">
             <End Role="Departamento" EntitySet="Departamento" />
             <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Clientes_Ciudades" Association="Self.FK_Clientes_Ciudades">
+            <End Role="Ciudades" EntitySet="Ciudades" />
+            <End Role="Clientes" EntitySet="Clientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Clientes_Comunas" Association="Self.FK_Clientes_Comunas">
+            <End Role="Comunas" EntitySet="Comunas" />
+            <End Role="Clientes" EntitySet="Clientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Clientes_ContactoComercial" Association="Self.FK_Clientes_ContactoComercial">
+            <End Role="ContactoComercial" EntitySet="ContactoComercial" />
+            <End Role="Clientes" EntitySet="Clientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Clientes_TipoPago" Association="Self.FK_Clientes_TipoPago">
+            <End Role="TipoPago" EntitySet="TipoPago" />
+            <End Role="Clientes" EntitySet="Clientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContactoComercial_TipoCargo" Association="Self.FK_ContactoComercial_TipoCargo">
+            <End Role="TipoCargo" EntitySet="TipoCargo" />
+            <End Role="ContactoComercial" EntitySet="ContactoComercial" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -47,13 +185,75 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PapiroWebModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Ciudades">
+          <Key>
+            <PropertyRef Name="IdCiudad" />
+          </Key>
+          <Property Name="IdCiudad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreCiudad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Clientes" Relationship="Self.FK_Clientes_Ciudades" FromRole="Ciudades" ToRole="Clientes" />
+        </EntityType>
+        <EntityType Name="Clientes">
+          <Key>
+            <PropertyRef Name="RutEmpresa" />
+          </Key>
+          <Property Name="RutEmpresa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RazonSocial" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Giro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TelefonoContacto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IdCiudad" Type="Int32" Nullable="false" />
+          <Property Name="IdComuna" Type="Int32" Nullable="false" />
+          <Property Name="IdTipoPago" Type="Int32" Nullable="false" />
+          <Property Name="IdContactoComercial" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Ciudades" Relationship="Self.FK_Clientes_Ciudades" FromRole="Clientes" ToRole="Ciudades" />
+          <NavigationProperty Name="Comunas" Relationship="Self.FK_Clientes_Comunas" FromRole="Clientes" ToRole="Comunas" />
+          <NavigationProperty Name="ContactoComercial" Relationship="Self.FK_Clientes_ContactoComercial" FromRole="Clientes" ToRole="ContactoComercial" />
+          <NavigationProperty Name="TipoPago" Relationship="Self.FK_Clientes_TipoPago" FromRole="Clientes" ToRole="TipoPago" />
+        </EntityType>
+        <EntityType Name="Comunas">
+          <Key>
+            <PropertyRef Name="idComunas" />
+          </Key>
+          <Property Name="idComunas" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreComuna" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Clientes" Relationship="Self.FK_Clientes_Comunas" FromRole="Comunas" ToRole="Clientes" />
+        </EntityType>
+        <EntityType Name="ContactoComercial">
+          <Key>
+            <PropertyRef Name="IdContacto" />
+          </Key>
+          <Property Name="IdContacto" Type="Int32" Nullable="false" />
+          <Property Name="NombreContacto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IdCargo" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Clientes" Relationship="Self.FK_Clientes_ContactoComercial" FromRole="ContactoComercial" ToRole="Clientes" />
+          <NavigationProperty Name="TipoCargo" Relationship="Self.FK_ContactoComercial_TipoCargo" FromRole="ContactoComercial" ToRole="TipoCargo" />
+        </EntityType>
         <EntityType Name="Departamento">
           <Key>
             <PropertyRef Name="IdDepartamento" />
           </Key>
           <Property Name="IdDepartamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NombreDepartamento" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NombreDepartamento" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Usuario" Relationship="Self.FK__Usuario__IdDepar__49C3F6B7" FromRole="Departamento" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="TipoCargo">
+          <Key>
+            <PropertyRef Name="IdTipoCargo" />
+          </Key>
+          <Property Name="IdTipoCargo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cargo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ContactoComercial" Relationship="Self.FK_ContactoComercial_TipoCargo" FromRole="TipoCargo" ToRole="ContactoComercial" />
+        </EntityType>
+        <EntityType Name="TipoPago">
+          <Key>
+            <PropertyRef Name="IdTipoPago" />
+          </Key>
+          <Property Name="IdTipoPago" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreTipoPago" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Clientes" Relationship="Self.FK_Clientes_TipoPago" FromRole="TipoPago" ToRole="Clientes" />
         </EntityType>
         <EntityType Name="Usuario">
           <Key>
@@ -61,11 +261,71 @@
           </Key>
           <Property Name="UserName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Nombres" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Apellidos" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombres" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="Apellidos" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="IdDepartamento" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Departamento" Relationship="Self.FK__Usuario__IdDepar__49C3F6B7" FromRole="Usuario" ToRole="Departamento" />
         </EntityType>
+        <Association Name="FK_Clientes_Ciudades">
+          <End Role="Ciudades" Type="Self.Ciudades" Multiplicity="1" />
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ciudades">
+              <PropertyRef Name="IdCiudad" />
+            </Principal>
+            <Dependent Role="Clientes">
+              <PropertyRef Name="IdCiudad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Clientes_Comunas">
+          <End Role="Comunas" Type="Self.Comunas" Multiplicity="1" />
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Comunas">
+              <PropertyRef Name="idComunas" />
+            </Principal>
+            <Dependent Role="Clientes">
+              <PropertyRef Name="IdComuna" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Clientes_ContactoComercial">
+          <End Role="ContactoComercial" Type="Self.ContactoComercial" Multiplicity="1" />
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContactoComercial">
+              <PropertyRef Name="IdContacto" />
+            </Principal>
+            <Dependent Role="Clientes">
+              <PropertyRef Name="IdContactoComercial" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Clientes_TipoPago">
+          <End Role="TipoPago" Type="Self.TipoPago" Multiplicity="1" />
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoPago">
+              <PropertyRef Name="IdTipoPago" />
+            </Principal>
+            <Dependent Role="Clientes">
+              <PropertyRef Name="IdTipoPago" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContactoComercial_TipoCargo">
+          <End Role="TipoCargo" Type="Self.TipoCargo" Multiplicity="1" />
+          <End Role="ContactoComercial" Type="Self.ContactoComercial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoCargo">
+              <PropertyRef Name="IdTipoCargo" />
+            </Principal>
+            <Dependent Role="ContactoComercial">
+              <PropertyRef Name="IdCargo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__Usuario__IdDepar__49C3F6B7">
           <End Role="Departamento" Type="Self.Departamento" Multiplicity="1" />
           <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
@@ -79,8 +339,34 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="PapiroWebEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Ciudades" EntityType="Self.Ciudades" />
+          <EntitySet Name="Clientes" EntityType="Self.Clientes" />
+          <EntitySet Name="Comunas" EntityType="Self.Comunas" />
+          <EntitySet Name="ContactoComercial" EntityType="Self.ContactoComercial" />
           <EntitySet Name="Departamento" EntityType="Self.Departamento" />
+          <EntitySet Name="TipoCargo" EntityType="Self.TipoCargo" />
+          <EntitySet Name="TipoPago" EntityType="Self.TipoPago" />
           <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+          <AssociationSet Name="FK_Clientes_Ciudades" Association="Self.FK_Clientes_Ciudades">
+            <End Role="Ciudades" EntitySet="Ciudades" />
+            <End Role="Clientes" EntitySet="Clientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Clientes_Comunas" Association="Self.FK_Clientes_Comunas">
+            <End Role="Comunas" EntitySet="Comunas" />
+            <End Role="Clientes" EntitySet="Clientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Clientes_ContactoComercial" Association="Self.FK_Clientes_ContactoComercial">
+            <End Role="ContactoComercial" EntitySet="ContactoComercial" />
+            <End Role="Clientes" EntitySet="Clientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Clientes_TipoPago" Association="Self.FK_Clientes_TipoPago">
+            <End Role="TipoPago" EntitySet="TipoPago" />
+            <End Role="Clientes" EntitySet="Clientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContactoComercial_TipoCargo" Association="Self.FK_ContactoComercial_TipoCargo">
+            <End Role="TipoCargo" EntitySet="TipoCargo" />
+            <End Role="ContactoComercial" EntitySet="ContactoComercial" />
+          </AssociationSet>
           <AssociationSet Name="FK__Usuario__IdDepar__49C3F6B7" Association="Self.FK__Usuario__IdDepar__49C3F6B7">
             <End Role="Departamento" EntitySet="Departamento" />
             <End Role="Usuario" EntitySet="Usuario" />
@@ -92,11 +378,69 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="PapiroWebModelStoreContainer" CdmEntityContainer="PapiroWebEntities">
+          <EntitySetMapping Name="Ciudades">
+            <EntityTypeMapping TypeName="PapiroWebModel.Ciudades">
+              <MappingFragment StoreEntitySet="Ciudades">
+                <ScalarProperty Name="IdCiudad" ColumnName="IdCiudad" />
+                <ScalarProperty Name="NombreCiudad" ColumnName="NombreCiudad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clientes">
+            <EntityTypeMapping TypeName="PapiroWebModel.Clientes">
+              <MappingFragment StoreEntitySet="Clientes">
+                <ScalarProperty Name="RutEmpresa" ColumnName="RutEmpresa" />
+                <ScalarProperty Name="RazonSocial" ColumnName="RazonSocial" />
+                <ScalarProperty Name="Giro" ColumnName="Giro" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="TelefonoContacto" ColumnName="TelefonoContacto" />
+                <ScalarProperty Name="IdCiudad" ColumnName="IdCiudad" />
+                <ScalarProperty Name="IdComuna" ColumnName="IdComuna" />
+                <ScalarProperty Name="IdTipoPago" ColumnName="IdTipoPago" />
+                <ScalarProperty Name="IdContactoComercial" ColumnName="IdContactoComercial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Comunas">
+            <EntityTypeMapping TypeName="PapiroWebModel.Comunas">
+              <MappingFragment StoreEntitySet="Comunas">
+                <ScalarProperty Name="idComunas" ColumnName="idComunas" />
+                <ScalarProperty Name="NombreComuna" ColumnName="NombreComuna" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContactoComercial">
+            <EntityTypeMapping TypeName="PapiroWebModel.ContactoComercial">
+              <MappingFragment StoreEntitySet="ContactoComercial">
+                <ScalarProperty Name="IdContacto" ColumnName="IdContacto" />
+                <ScalarProperty Name="NombreContacto" ColumnName="NombreContacto" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="IdCargo" ColumnName="IdCargo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Departamento">
             <EntityTypeMapping TypeName="PapiroWebModel.Departamento">
               <MappingFragment StoreEntitySet="Departamento">
                 <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
                 <ScalarProperty Name="NombreDepartamento" ColumnName="NombreDepartamento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoCargo">
+            <EntityTypeMapping TypeName="PapiroWebModel.TipoCargo">
+              <MappingFragment StoreEntitySet="TipoCargo">
+                <ScalarProperty Name="IdTipoCargo" ColumnName="IdTipoCargo" />
+                <ScalarProperty Name="Cargo" ColumnName="Cargo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoPago">
+            <EntityTypeMapping TypeName="PapiroWebModel.TipoPago">
+              <MappingFragment StoreEntitySet="TipoPago">
+                <ScalarProperty Name="IdTipoPago" ColumnName="IdTipoPago" />
+                <ScalarProperty Name="NombreTipoPago" ColumnName="NombreTipoPago" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

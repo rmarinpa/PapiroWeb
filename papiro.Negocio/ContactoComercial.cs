@@ -7,75 +7,53 @@ using papiro.DALC;
 
 namespace papiro.Negocio
 {
-    public class Cliente
+    PapiroWebEntities db = new PapiroWebEntities();
+    public class ContactoComercial
     {
-        PapiroWebEntities db = new PapiroWebEntities();
+        private int _idContacto;
 
-        private string _rutEmpresa;
-
-        public string RutEmpresa
+        public int IdContacto
         {
-            get { return _rutEmpresa; }
-            set { _rutEmpresa = value; }
-        }
-        private string _razonSocial;
-
-        public string RazonSocial
-        {
-            get { return _razonSocial; }
-            set { _razonSocial = value; }
-        }
-        private string _giro;
-
-        public string Giro
-        {
-            get { return _giro; }
-            set { _giro = value; }
-        }
-        private string _direccion;
-
-        public string Direccion
-        {
-            get { return _direccion; }
-            set { _direccion = value; }
-        }
-        private string _telefonoContacto;
-
-        public string TelefonoContacto
-        {
-            get { return _telefonoContacto; }
-            set { _telefonoContacto = value; }
-        }
-        private int _idCiudad;
-
-        public int IdCiudad
-        {
-            get { return _idCiudad; }
-            set { _idCiudad = value; }
-        }
-        private int _idComuna;
-
-        public int IdComuna
-        {
-            get { return _idComuna; }
-            set { _idComuna = value; }
+            get { return _idContacto; }
+            set { _idContacto = value; }
         }
 
-        private int _idTipoPago;
+        private string _nombreConta;
 
-        public int IdTipoPago
+        public string NombreConta
         {
-            get { return _idTipoPago; }
-            set { _idTipoPago = value; }
+            get { return _nombreConta; }
+            set { _nombreConta = value; }
         }
-        private int _idContactoComercial;
 
-        public int IdContactoComercial
+        private string _telefono;
+
+        public string Telefono
         {
-            get { return _idContactoComercial; }
-            set { _idContactoComercial = value; }
+            get { return _telefono; }
+            set { _telefono = value; }
         }
+        private string _email;
+
+        public string Email
+        {
+            get { return _email; }
+            set { _email = value; }
+        }
+        private int _idCargo;
+
+        public int IdCargo
+        {
+            get { return _idCargo; }
+            set { _idCargo = value; }
+        }
+
         public bool Create()
+        {
+
+        }
+
+        /*public bool Create()
         {
             try
             {
@@ -201,5 +179,8 @@ namespace papiro.Negocio
                 return false;
             }
         }
+         * 
+         * */
+
     }
 }

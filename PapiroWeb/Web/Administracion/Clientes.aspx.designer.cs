@@ -13,13 +13,13 @@ namespace PapiroWeb.Web.Administracion {
     public partial class Clientes {
         
         /// <summary>
-        /// Control txtRut.
+        /// Control txtRutEmpresa.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRut;
+        protected global::System.Web.UI.WebControls.TextBox txtRutEmpresa;
         
         /// <summary>
         /// Control btnBuscarRut.
@@ -49,40 +49,67 @@ namespace PapiroWeb.Web.Administracion {
         protected global::System.Web.UI.WebControls.Button btnBuscarRazon;
         
         /// <summary>
-        /// Control txtDireccion.
+        /// Control txtGiro.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDireccion;
+        protected global::System.Web.UI.WebControls.TextBox txtGiro;
         
         /// <summary>
-        /// Control txtComuna.
+        /// Control txtDireccionEmpresa.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtComuna;
+        protected global::System.Web.UI.WebControls.TextBox txtDireccionEmpresa;
         
         /// <summary>
-        /// Control txtCiudad.
+        /// Control ddlComunaEmpresa.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCiudad;
+        protected global::System.Web.UI.WebControls.DropDownList ddlComunaEmpresa;
         
         /// <summary>
-        /// Control txtTelefono.
+        /// Control EntityDataSource1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTelefono;
+        protected global::System.Web.UI.WebControls.EntityDataSource EntityDataSource1;
+        
+        /// <summary>
+        /// Control ddlCiudadEmpresa.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlCiudadEmpresa;
+        
+        /// <summary>
+        /// Control EntityDataSourceCiudad.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.EntityDataSource EntityDataSourceCiudad;
+        
+        /// <summary>
+        /// Control txtTelefonoEmpresa.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtTelefonoEmpresa;
         
         /// <summary>
         /// Control txtNombre.
@@ -193,13 +220,13 @@ namespace PapiroWeb.Web.Administracion {
         protected global::System.Web.UI.WebControls.TextBox txtTelefonoContacto;
         
         /// <summary>
-        /// Control txtComunaDespacho.
+        /// Control ddlComuna.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtComunaDespacho;
+        protected global::System.Web.UI.WebControls.DropDownList ddlComuna;
         
         /// <summary>
         /// Control txtDireccionDespacho.
@@ -427,6 +454,15 @@ namespace PapiroWeb.Web.Administracion {
         protected global::System.Web.UI.WebControls.TextBox txtMaquinas320;
         
         /// <summary>
+        /// Control lblMensaje.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMensaje;
+        
+        /// <summary>
         /// Control btnAgregar.
         /// </summary>
         /// <remarks>
@@ -452,5 +488,14 @@ namespace PapiroWeb.Web.Administracion {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnEliminar;
+        
+        /// <summary>
+        /// Control btnLimpiar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnLimpiar;
     }
 }
