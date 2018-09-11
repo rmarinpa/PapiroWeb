@@ -26,7 +26,7 @@
                         <asp:Login ID="loginUsuario" runat="server" OnAuthenticate="loginUsuario_Authenticate">
                             <LayoutTemplate>
                                 <div class="card-body">
-                                    <h5 class="card-title text-center">Ingreso</h5>
+                                    <h5 class="card-title text-center"><i class="fa fa-sign-in-alt"></i>Ingreso</h5>
                                     <form class="form-signin">
                                         <div class="form-label-group">
                                             <!-- Nombre de usuario -->
@@ -54,6 +54,11 @@
                                         <!-- Otros botones-->
                             </LayoutTemplate>
                         </asp:Login>
+                        <div class="form-label-group">
+                            <label for="lblDepto">Departamento</label>
+                            <asp:DropDownList ID="ddlDepto" CssClass="form-control" runat="server" DataSourceID="SqlDataSource1" DataTextField="NombreDepartamento" DataValueField="IdDepartamento"></asp:DropDownList>
+                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:PapiroWebConnectionString %>" SelectCommand="SELECT * FROM [Departamento]"></asp:SqlDataSource>
+                        </div>
                     </div>
                 </div>
             </div>

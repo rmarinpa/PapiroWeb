@@ -59,6 +59,8 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -135,6 +137,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Connected Services\ServicioAutenticacion\Autenticacion.disco" />
+    <None Include="Connected Services\ServicioAutenticacion\configuration91.svcinfo" />
+    <None Include="Connected Services\ServicioAutenticacion\configuration.svcinfo" />
+    <None Include="Connected Services\ServicioAutenticacion\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -180,7 +189,8 @@
     <Content Include="Web\Administracion\MenuAdministracion.aspx" />
     <Content Include="Web\Administracion\NotasDePedidos.aspx" />
     <Content Include="Web\Administracion\Productos.aspx" />
-    <Content Include="Login.aspx" />
+    <Content Include="Web\Index.aspx" />
+    <Content Include="Web\Login.aspx" />
     <Content Include="Scripts\esm\popper.min.js.map" />
     <Content Include="Scripts\esm\popper.js.map" />
     <Content Include="Scripts\esm\popper-utils.min.js.map" />
@@ -196,6 +206,13 @@
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="Web\Administracion\RegistroLlamadas.aspx" />
+    <None Include="Connected Services\ServicioAutenticacion\Autenticacion.wsdl" />
+    <None Include="Connected Services\ServicioAutenticacion\Autenticacion.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServicioAutenticacion\Autenticacion1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -234,6 +251,11 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Connected Services\ServicioAutenticacion\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -329,11 +351,18 @@
     <Compile Include="Web\Administracion\Productos.aspx.designer.cs">
       <DependentUpon>Productos.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Login.aspx.cs">
+    <Compile Include="Web\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Login.aspx.designer.cs">
+    <Compile Include="Web\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Web\Administracion\RegistroLlamadas.aspx.cs">
@@ -380,6 +409,18 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\papiro.Negocio\papiro.Negocio.csproj">
+      <Project>{f7304eb3-39d0-443b-846e-1c30178f9b8f}</Project>
+      <Name>papiro.Negocio</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\ServicioAutenticacion\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

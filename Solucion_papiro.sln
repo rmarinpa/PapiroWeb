@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.27703.2047
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PapiroWeb", "PapiroWeb\PapiroWeb.csproj", "{6CB8CE80-FF81-42C4-8423-A892000B8976}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4AF0AD54-FCB8-4E16-82A1-583AE665EA8B} = {4AF0AD54-FCB8-4E16-82A1-583AE665EA8B}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "papiro.DALC", "papiro.DALC\papiro.DALC.csproj", "{9804603A-966B-4DBA-A5A6-C591B4B47478}"
 EndProject

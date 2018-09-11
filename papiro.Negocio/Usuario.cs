@@ -3,18 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using papiro.DALC;
 
 namespace papiro.Negocio
 {
     public class Usuario
     {
-        private string _nombreUsuario;
 
-        public string NombreUsuario
+        PapiroWebEntities db = new PapiroWebEntities();
+
+
+        private string _username;
+
+        public string UserName
         {
-            get { return _nombreUsuario; }
-            set { _nombreUsuario = value; }
+            get { return _username; }
+            set { _username = value; }
         }
+
         private string _password;
 
         public string Password
@@ -36,12 +42,37 @@ namespace papiro.Negocio
             get { return _apellidos; }
             set { _apellidos = value; }
         }
+
         private int _idDepartamento;
 
         public int IdDepartamento
         {
             get { return _idDepartamento; }
             set { _idDepartamento = value; }
+        }
+
+        public Usuario LoginUsuario(string username, string password)
+        {
+            try
+            {
+                DALC.Usuario user = (from u in db.Usuario
+                                     where u.UserName.Equals(username)
+                                     && u.Password.Equals(password)
+                                     select u).First();
+
+                return new Usuario()
+                {
+                    Nombres = user.Nombres,
+                    Apellidos = user.Apellidos,
+                    UserName = user.UserName,
+                    Password = user.Password
+                };
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
     }

@@ -7,27 +7,27 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace PapiroWeb.Web.Administracion {
+namespace PapiroWeb.Web {
     
     
-    public partial class ConfigUsuario {
+    public partial class Index {
         
         /// <summary>
-        /// Control gvUsuarios.
+        /// Control form1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvUsuarios;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// Control EntityDataSource1.
+        /// Control LoginStatus1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.EntityDataSource EntityDataSource1;
+        protected global::System.Web.UI.WebControls.LoginStatus LoginStatus1;
     }
 }
