@@ -56,10 +56,10 @@
     <Compile Include="Comunas.cs">
       <DependentUpon>PapiroEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="ContactoComercial.cs">
+    <Compile Include="ContactosComerciales.cs">
       <DependentUpon>PapiroEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Departamento.cs">
+    <Compile Include="Departamentos.cs">
       <DependentUpon>PapiroEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="PapiroEntities.Context.cs">
@@ -78,13 +78,13 @@
       <DependentUpon>PapiroEntities.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TipoCargo.cs">
+    <Compile Include="TiposCargos.cs">
       <DependentUpon>PapiroEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="TipoPago.cs">
+    <Compile Include="TiposPagos.cs">
       <DependentUpon>PapiroEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Usuario.cs">
+    <Compile Include="Usuarios.cs">
       <DependentUpon>PapiroEntities.tt</DependentUpon>
     </Compile>
   </ItemGroup>

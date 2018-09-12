@@ -49,97 +49,16 @@ namespace papiro.Negocio
             get { return _idCargo; }
             set { _idCargo = value; }
         }
-
-
-        /*public bool Create()
-        {
-            try
-            {
-                DALC.Clientes clientes = new DALC.Clientes();
-                clientes.RutEmpresa = this.RutEmpresa;
-                clientes.RazonSocial = this.RazonSocial;
-                clientes.Giro = this.Giro;
-                clientes.Direccion = this.Direccion;
-                clientes.TelefonoContacto = this.TelefonoContacto;
-                clientes.IdCiudad = this.IdCiudad;
-                clientes.IdComuna = this.IdComuna;
-                clientes.IdTipoPago = this.IdTipoPago;
-                clientes.IdContactoComercial = this.IdTipoPago;
-
-                db.Clientes.Add(clientes);
-
-                db.SaveChanges();
-
-                return true;
-            }
-            catch (Exception)
-            {
-
-                return false;
-            }
-        }
-
-        public bool Update()
-        {
-            try
-            {
-                DALC.Clientes clientes = db.Clientes.Find(this.RutEmpresa);
-
-                clientes.RutEmpresa = this.RutEmpresa;
-                clientes.RazonSocial = this.RazonSocial;
-                clientes.Giro = this.Giro;
-                clientes.Direccion = this.Direccion;
-                clientes.TelefonoContacto = this.TelefonoContacto;
-                clientes.IdCiudad = this.IdCiudad;
-                clientes.IdComuna = this.IdComuna;
-                clientes.IdTipoPago = this.IdTipoPago;
-                clientes.IdContactoComercial = this.IdTipoPago;
-
-                db.Entry(clientes).State = System.Data.EntityState.Modified;
-
-                db.SaveChanges();
-
-                return true;
-            }
-            catch (Exception)
-            {
-
-                return false;
-            }
-        }
-
-        public bool Delete()
-        {
-            try
-            {
-                DALC.Clientes clientes = db.Clientes.Find(this.RutEmpresa);
-
-                db.Clientes.Remove(clientes);
-                db.SaveChanges();
-
-                return true;
-            }
-            catch (Exception)
-            {
-
-                return false;
-            }
-        }
         public bool Read()
         {
             try
             {
-                DALC.Clientes clientes = db.Clientes.Find(this.RutEmpresa);
+                DALC.ContactosComerciales contactos = db.ContactosComerciales.Find(this.IdContacto);
 
-                this.RutEmpresa = clientes.RutEmpresa;
-                this.RazonSocial = clientes.RazonSocial;
-                this.Giro = clientes.Giro;
-                this.Direccion = clientes.Direccion;
-                this.TelefonoContacto = clientes.TelefonoContacto;
-                this.IdCiudad = clientes.IdCiudad;
-                this.IdComuna = clientes.IdComuna;
-                this.IdTipoPago = clientes.IdTipoPago;
-                this.IdContactoComercial = clientes.IdContactoComercial;
+                this.NombreConta = contactos.NombreContacto;
+                this.Telefono = contactos.Telefono;
+                this.Email = contactos.Email;
+                this.IdCargo = contactos.IdCargo;
 
                 return true;
 
@@ -150,35 +69,5 @@ namespace papiro.Negocio
                 return false;
             }
         }
-
-        public bool ReadRazon()
-        {
-            try
-            {
-                DALC.Clientes clientes = (from a in db.Clientes
-                                          where a.RazonSocial.Equals(this.RazonSocial)
-                                          select a).First();
-
-                this.RazonSocial = clientes.RazonSocial;
-                this.RutEmpresa = clientes.RutEmpresa;
-                this.Giro = clientes.Giro;
-                this.Direccion = clientes.Direccion;
-                this.TelefonoContacto = clientes.TelefonoContacto;
-                this.IdCiudad = clientes.IdCiudad;
-                this.IdComuna = clientes.IdComuna;
-                this.IdTipoPago = clientes.IdTipoPago;
-                this.IdContactoComercial = clientes.IdContactoComercial;
-
-                return true;
-            }
-            catch (Exception)
-            {
-
-                return false;
-            }
-        }
-         * 
-         * */
-
     }
 }

@@ -12,20 +12,14 @@ namespace papiro.DALC
     using System;
     using System.Collections.Generic;
     
-    public partial class ContactoComercial
+    public partial class Usuarios
     {
-        public ContactoComercial()
-        {
-            this.Clientes = new HashSet<Clientes>();
-        }
+        public string UserName { get; set; }
+        public string Password { get; set; }
+        public string Nombres { get; set; }
+        public string Apellidos { get; set; }
+        public int IdDepartamento { get; set; }
     
-        public int IdContacto { get; set; }
-        public string NombreContacto { get; set; }
-        public string Telefono { get; set; }
-        public string Email { get; set; }
-        public int IdCargo { get; set; }
-    
-        public virtual ICollection<Clientes> Clientes { get; set; }
-        public virtual TipoCargo TipoCargo { get; set; }
+        public virtual Departamentos Departamentos { get; set; }
     }
 }

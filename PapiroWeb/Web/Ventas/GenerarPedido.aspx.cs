@@ -5,14 +5,13 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace PapiroWeb.Web.Administracion
+namespace PapiroWeb.Web.Ventas
 {
-    public partial class ConfigUsuario : System.Web.UI.Page
+    public partial class GenerarPedido : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
-
     }
 }

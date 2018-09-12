@@ -2,9 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Script.Services;
+using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using papiro.DALC;
 using papiro.Negocio;
+
 
 namespace PapiroWeb.Web.Administracion
 {
@@ -14,6 +18,8 @@ namespace PapiroWeb.Web.Administracion
         {
 
         }
+
+
 
         protected void btnBuscarRut_Click(object sender, EventArgs e)
         {
@@ -30,12 +36,28 @@ namespace PapiroWeb.Web.Administracion
                     txtDireccionEmpresa.Text = cliente.Direccion;
                     txtTelefonoEmpresa.Text = cliente.TelefonoContacto;
                     ddlComunaEmpresa.SelectedValue = cliente.IdComuna.ToString();
+                    ddlCiudadEmpresa.SelectedValue = cliente.IdCiudad.ToString();
+                    ddlTipoPago.SelectedValue = cliente.IdTipoPago.ToString();
+                    txtIDContacto.Text = cliente.IdContactoComercial.ToString();
 
                 }
                 else
                 {
                     lblMensaje.Text = "No se encuentra rut";
                 }
+
+                ContactoComercial contactoComercial = new ContactoComercial();
+                contactoComercial.IdContacto = int.Parse(txtIDContacto.Text);
+
+                if (contactoComercial.Read())
+                {
+                    txtNombreContacto.Text = contactoComercial.NombreConta;
+                    txtTelefonoComercial.Text = contactoComercial.Telefono;
+                    txtEmailContacto.Text = contactoComercial.Email;
+                    ddlTipoCargo.SelectedValue = contactoComercial.IdCargo.ToString();
+                }
+
+
             }
             catch (ArgumentException ex)
             {
@@ -46,7 +68,6 @@ namespace PapiroWeb.Web.Administracion
             {
                 lblMensaje.Text = "Error al buscar";
             }
-
         }
 
 
@@ -61,15 +82,26 @@ namespace PapiroWeb.Web.Administracion
                 if (cliente.ReadRazon())
                 {
                     txtRutEmpresa.Text = cliente.RutEmpresa;
+                    txtRazonSocial.Text = cliente.RazonSocial;
                     txtGiro.Text = cliente.Giro;
                     txtDireccionEmpresa.Text = cliente.Direccion;
                     txtTelefonoEmpresa.Text = cliente.TelefonoContacto;
+                    ddlComunaEmpresa.SelectedValue = cliente.IdComuna.ToString();
+                    txtIDContacto.Text = cliente.IdContactoComercial.ToString();
 
                 }
                 else
                 {
                     lblMensaje.Text = "No se encuentra razón social";
                 }
+                ContactoComercial contactoComercial = new ContactoComercial();
+                contactoComercial.IdContacto = int.Parse(txtIDContacto.Text);
+
+                if (contactoComercial.Read())
+                {
+                    txtNombreContacto.Text = contactoComercial.NombreConta;
+                }
+
             }
             catch (ArgumentException ex)
             {
@@ -83,9 +115,34 @@ namespace PapiroWeb.Web.Administracion
 
         }
 
-        protected void btnAgregar_Click(object sender, EventArgs e)
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public static List<string> GetRazon(string pre)
         {
-
+            List<string> clientes = new List<string>();
+            using (PapiroWebEntities db = new PapiroWebEntities())
+            {
+                clientes = (from c in db.Clientes
+                            where c.RazonSocial.StartsWith(pre)
+                            select c.RazonSocial).ToList();
+            }
+            return clientes;
         }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public static List<string> GetRut(string pre)
+        {
+            List<string> clientes = new List<string>();
+            using (PapiroWebEntities db = new PapiroWebEntities())
+            {
+                clientes = (from c in db.Clientes
+                            where c.RutEmpresa.StartsWith(pre)
+                            select c.RutEmpresa).ToList();
+            }
+            return clientes;
+        }
+
+
     }
 }

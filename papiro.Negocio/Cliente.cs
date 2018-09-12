@@ -175,6 +175,7 @@ namespace papiro.Negocio
             }
         }
 
+
         public bool ReadRazon()
         {
             try

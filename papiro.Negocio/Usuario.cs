@@ -55,10 +55,10 @@ namespace papiro.Negocio
         {
             try
             {
-                DALC.Usuario user = (from u in db.Usuario
-                                     where u.UserName.Equals(username)
-                                     && u.Password.Equals(password)
-                                     select u).First();
+                DALC.Usuarios user = (from u in db.Usuarios
+                                      where u.UserName.Equals(username)
+                                      && u.Password.Equals(password)
+                                      select u).First();
 
                 return new Usuario()
                 {
@@ -72,6 +72,28 @@ namespace papiro.Negocio
             {
 
                 throw;
+            }
+        }
+
+        public IEnumerable<Object> ReadAll()
+        {
+            try
+            {
+                var usuarios = (from a in db.Usuarios
+                                join de in db.Departamentos
+                                on a.IdDepartamento equals de.IdDepartamento
+                                select new
+                                {
+                                    a.UserName,
+                                    de.NombreDepartamento
+                                }
+                                 ).ToList();
+                return usuarios;
+            }
+            catch (Exception)
+            {
+
+                return null;
             }
         }
 

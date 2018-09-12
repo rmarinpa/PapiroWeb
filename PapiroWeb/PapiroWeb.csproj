@@ -47,9 +47,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=18.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\ASP.NET AJAX Control Toolkit\Bin\AjaxControlToolkit.dll</HintPath>
+    </Reference>
     <Reference Include="AspNet.ScriptManager.bootstrap, Version=4.1.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\AspNet.ScriptManager.bootstrap.4.1.1\lib\net45\AspNet.ScriptManager.bootstrap.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -137,6 +142,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Web\Ventas\MenuVentas.aspx" />
     <None Include="Connected Services\ServicioAutenticacion\Autenticacion.disco" />
     <None Include="Connected Services\ServicioAutenticacion\configuration91.svcinfo" />
     <None Include="Connected Services\ServicioAutenticacion\configuration.svcinfo" />
@@ -191,6 +197,7 @@
     <Content Include="Web\Administracion\MenuAdministracion.aspx" />
     <Content Include="Web\Administracion\NotasDePedidos.aspx" />
     <Content Include="Web\Administracion\Productos.aspx" />
+    <Content Include="Web\Administracion\WebForm1.aspx" />
     <Content Include="Web\Index.aspx" />
     <Content Include="Web\Login.aspx" />
     <Content Include="Scripts\esm\popper.min.js.map" />
@@ -249,6 +256,8 @@
     </Content>
     <Content Include="Bundle.config" />
     <Content Include="Web\Administracion\LayoutAdmin.Master" />
+    <Content Include="Web\Ventas\GenerarPedido.aspx" />
+    <Content Include="Web\Ventas\Layout.Ventas.Master" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -353,6 +362,13 @@
     <Compile Include="Web\Administracion\Productos.aspx.designer.cs">
       <DependentUpon>Productos.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Web\Administracion\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Administracion\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Web\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -374,6 +390,27 @@
     <Compile Include="Web\Administracion\RegistroLlamadas.aspx.designer.cs">
       <DependentUpon>RegistroLlamadas.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Web\Ventas\GenerarPedido.aspx.cs">
+      <DependentUpon>GenerarPedido.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Ventas\GenerarPedido.aspx.designer.cs">
+      <DependentUpon>GenerarPedido.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Ventas\Layout.Ventas.Master.cs">
+      <DependentUpon>Layout.Ventas.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Ventas\Layout.Ventas.Master.designer.cs">
+      <DependentUpon>Layout.Ventas.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Ventas\MenuVentas.aspx.cs">
+      <DependentUpon>MenuVentas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Ventas\MenuVentas.aspx.designer.cs">
+      <DependentUpon>MenuVentas.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -384,7 +421,6 @@
     <Folder Include="Web\Logistica\" />
     <Folder Include="Web\ServicioTecnico\" />
     <Folder Include="Web\Tickets\" />
-    <Folder Include="Web\Ventas\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -413,6 +449,10 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\papiro.DALC\papiro.DALC.csproj">
+      <Project>{9804603A-966B-4DBA-A5A6-C591B4B47478}</Project>
+      <Name>papiro.DALC</Name>
+    </ProjectReference>
     <ProjectReference Include="..\papiro.Negocio\papiro.Negocio.csproj">
       <Project>{f7304eb3-39d0-443b-846e-1c30178f9b8f}</Project>
       <Name>papiro.Negocio</Name>

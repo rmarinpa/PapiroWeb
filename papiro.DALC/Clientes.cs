@@ -26,7 +26,7 @@ namespace papiro.DALC
     
         public virtual Ciudades Ciudades { get; set; }
         public virtual Comunas Comunas { get; set; }
-        public virtual ContactoComercial ContactoComercial { get; set; }
-        public virtual TipoPago TipoPago { get; set; }
+        public virtual ContactosComerciales ContactosComerciales { get; set; }
+        public virtual TiposPagos TiposPagos { get; set; }
     }
 }

@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="Configuración de usuario" Language="C#" MasterPageFile="~/Web/Administracion/LayoutAdmin.Master" AutoEventWireup="true" CodeBehind="ConfigUsuario.aspx.cs" Inherits="PapiroWeb.Web.Administracion.ConfigUsuario" %>
 
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container text-center">
         <h2 class="text-center">Administración de usuarios</h2>
@@ -24,6 +26,13 @@
                 <SortedDescendingCellStyle BackColor="#EAEAD3" />
                 <SortedDescendingHeaderStyle BackColor="#575357" />
             </asp:GridView>
+            <asp:GridView ID="GridView1" runat="server" DataSourceID="ObjectDataSource1">
+                <Columns>
+                    <asp:CommandField ShowSelectButton="True" />
+                </Columns>
+            </asp:GridView>
+
+
             <asp:EntityDataSource ID="EntityDataSource1" runat="server" ConnectionString="name=PapiroWebEntities" DefaultContainerName="PapiroWebEntities" EnableDelete="True" EnableFlattening="False" EnableInsert="True" EnableUpdate="True" EntitySetName="Usuario">
             </asp:EntityDataSource>
         </div>
