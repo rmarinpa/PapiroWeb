@@ -19,8 +19,8 @@ namespace papiro.DALC
             this.Clientes = new HashSet<Clientes>();
         }
     
-        public int idComunas { get; set; }
-        public string NombreComuna { get; set; }
+        public int IdComuna { get; set; }
+        public Nullable<int> NombreComuna { get; set; }
     
         public virtual ICollection<Clientes> Clientes { get; set; }
     }

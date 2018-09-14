@@ -23,7 +23,6 @@ namespace PapiroWeb.Web.Administracion
 
         protected void btnBuscarRut_Click(object sender, EventArgs e)
         {
-
             try
             {
                 Cliente cliente = new Cliente();

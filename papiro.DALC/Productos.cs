@@ -12,16 +12,24 @@ namespace papiro.DALC
     using System;
     using System.Collections.Generic;
     
-    public partial class TiposPagos
+    public partial class Productos
     {
-        public TiposPagos()
+        public Productos()
         {
+            this.DetalleFacturas = new HashSet<DetalleFacturas>();
             this.Ventas = new HashSet<Ventas>();
         }
     
-        public int IdTipoPago { get; set; }
-        public string NombreTipoPago { get; set; }
+        public int IdProducto { get; set; }
+        public int Codigo { get; set; }
+        public int Codigo2 { get; set; }
+        public int Descripcion { get; set; }
+        public int Stock { get; set; }
+        public Nullable<int> Precio { get; set; }
+        public Nullable<int> IdTipoProducto { get; set; }
     
+        public virtual ICollection<DetalleFacturas> DetalleFacturas { get; set; }
+        public virtual TipoProducto TipoProducto { get; set; }
         public virtual ICollection<Ventas> Ventas { get; set; }
     }
 }

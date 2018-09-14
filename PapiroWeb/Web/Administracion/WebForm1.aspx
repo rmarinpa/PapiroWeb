@@ -6,37 +6,14 @@
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>FormPruebas</title>
-
-
-    <!--AutoComplete-->
-    <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
-    <script type="text/javascript">
-        $(function () {
-            $('#<%=txtNombresUsuario.ClientID%>').autocomplete({
-                source: function (request, response) {
-                    $.ajax({
-                        url: "WebForm1.aspx/GetNombre",
-                        data: "{'pre':'" + request.term + "'}",
-                        dataType: "json",
-                        type: "POST",
-                        contentType: "application/json; charset=utf=8",
-                        success: function (data) {
-                            response($.map(data.d, function (item) {
-                                return { value: item }
-                            }))
-                        },
-                        error: function (XMLHttpRequest, textStatus, erroThrown) {
-                            alert(textStatus);
-                        }
-                    });
-                }
-            });
-        });
-    </script>
-    <!--FinAutoComplete-->
+    <link href="../../Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../Content/Master.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <script src="../../Scripts/jquery-3.3.1.min.js"></script>
+    <script src="../../Scripts/bootstrap.min.js"></script>
+    <script src="../../Scripts/umd/popper.min.js"></script>
+    <script src="../../Scripts/bootstrap.bundle.min.js"></script>
 </head>
 
 <body>
@@ -54,7 +31,7 @@
                     <div class="col-md-4 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <asp:TextBox ID="txtNombresUsuario" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="textbox1" runat="server"></asp:TextBox>
                         </div>
                     </div>
                 </div>

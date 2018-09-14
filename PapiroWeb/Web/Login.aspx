@@ -8,12 +8,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Iniciar sesión</title>
     <link href="../../Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="../Content/LoginStyle.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <script src="../../Scripts/jquery-3.3.1.min.js"></script>
     <script src="../../Scripts/bootstrap.min.js"></script>
     <script src="../../Scripts/umd/popper.min.js"></script>
     <script src="../../Scripts/bootstrap.bundle.min.js"></script>
-    <link href="../Content/LoginStyle.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 </head>
 
 
@@ -48,7 +48,7 @@
                                         <div class="form-label-group">
                                             <asp:Literal ID="FailureText" runat="server" EnableViewState="False"></asp:Literal>
                                         </div>
-                                        <!-- Boton -->
+                                        <!-- Botón -->
                                         <asp:Button ID="LoginButton" CssClass="btn btn-lg btn-primary btn-block text-uppercase" runat="server" CommandName="Login" Text="Inicio de sesión" ValidationGroup="loginUsuario" />
                                         <hr class="my-4" />
                                         <!-- Otros botones-->
@@ -59,5 +59,10 @@
             </div>
         </div>
     </form>
+    <!-- Scripts -->
+
+
+
+    <!-- Fin de Scripts -->
 </body>
 </html>

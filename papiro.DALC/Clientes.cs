@@ -14,19 +14,32 @@ namespace papiro.DALC
     
     public partial class Clientes
     {
+        public Clientes()
+        {
+            this.Facturas = new HashSet<Facturas>();
+            this.Ventas = new HashSet<Ventas>();
+        }
+    
         public string RutEmpresa { get; set; }
         public string RazonSocial { get; set; }
         public string Giro { get; set; }
         public string Direccion { get; set; }
         public string TelefonoContacto { get; set; }
-        public int IdCiudad { get; set; }
-        public int IdComuna { get; set; }
         public int IdTipoPago { get; set; }
         public int IdContactoComercial { get; set; }
+        public Nullable<int> Condicion { get; set; }
+        public string LineaDeCredito { get; set; }
+        public string Dicom { get; set; }
+        public string Observacion { get; set; }
+        public string FechaDeActualizacion { get; set; }
+        public string FichaCliente { get; set; }
+        public string FechaIngreso { get; set; }
+        public int IdComuna { get; set; }
+        public int IdCiudad { get; set; }
     
         public virtual Ciudades Ciudades { get; set; }
         public virtual Comunas Comunas { get; set; }
-        public virtual ContactosComerciales ContactosComerciales { get; set; }
-        public virtual TiposPagos TiposPagos { get; set; }
+        public virtual ICollection<Facturas> Facturas { get; set; }
+        public virtual ICollection<Ventas> Ventas { get; set; }
     }
 }

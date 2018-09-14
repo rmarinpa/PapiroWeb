@@ -30,8 +30,13 @@ namespace papiro.DALC
         public DbSet<Comunas> Comunas { get; set; }
         public DbSet<ContactosComerciales> ContactosComerciales { get; set; }
         public DbSet<Departamentos> Departamentos { get; set; }
+        public DbSet<DetalleFacturas> DetalleFacturas { get; set; }
+        public DbSet<Facturas> Facturas { get; set; }
+        public DbSet<Productos> Productos { get; set; }
+        public DbSet<TipoProducto> TipoProducto { get; set; }
         public DbSet<TiposCargos> TiposCargos { get; set; }
         public DbSet<TiposPagos> TiposPagos { get; set; }
         public DbSet<Usuarios> Usuarios { get; set; }
+        public DbSet<Ventas> Ventas { get; set; }
     }
 }
