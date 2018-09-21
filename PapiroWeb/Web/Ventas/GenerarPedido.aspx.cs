@@ -110,6 +110,7 @@ namespace PapiroWeb.Web.Ventas
 
         }
 
+
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public static List<string> GetRazon(string pre)
@@ -137,5 +138,8 @@ namespace PapiroWeb.Web.Ventas
             }
             return clientes;
         }
+
+
+
     }
 }

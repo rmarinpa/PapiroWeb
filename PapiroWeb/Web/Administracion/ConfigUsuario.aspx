@@ -1,40 +1,47 @@
 ﻿<%@ Page Title="Configuración de usuario" Language="C#" MasterPageFile="~/Web/Administracion/LayoutAdmin.Master" AutoEventWireup="true" CodeBehind="ConfigUsuario.aspx.cs" Inherits="PapiroWeb.Web.Administracion.ConfigUsuario" %>
 
-<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container text-center">
         <h2 class="text-center">Administración de usuarios</h2>
         <div class="col col-lg-auto">
-            <asp:GridView ID="gvUsuarios" CssClass="table" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="UserName" DataSourceID="EntityDataSource1" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Vertical">
-                <AlternatingRowStyle BackColor="White" />
-                <Columns>
-                    <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowSelectButton="True" />
-                    <asp:BoundField DataField="UserName" HeaderText="UserName" ReadOnly="True" SortExpression="UserName" />
-                    <asp:BoundField DataField="Password" HeaderText="Password" SortExpression="Password" />
-                    <asp:BoundField DataField="Nombres" HeaderText="Nombres" SortExpression="Nombres" />
-                    <asp:BoundField DataField="Apellidos" HeaderText="Apellidos" SortExpression="Apellidos" />
-                    <asp:BoundField DataField="IdDepartamento" HeaderText="IdDepartamento" SortExpression="IdDepartamento" />
-                </Columns>
-                <FooterStyle BackColor="#CCCC99" />
-                <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />
-                <PagerStyle BackColor="#F7F7DE" ForeColor="Black" HorizontalAlign="Right" />
-                <RowStyle BackColor="#F7F7DE" />
-                <SelectedRowStyle BackColor="#CE5D5A" Font-Bold="True" ForeColor="White" />
-                <SortedAscendingCellStyle BackColor="#FBFBF2" />
-                <SortedAscendingHeaderStyle BackColor="#848384" />
-                <SortedDescendingCellStyle BackColor="#EAEAD3" />
-                <SortedDescendingHeaderStyle BackColor="#575357" />
-            </asp:GridView>
-            <asp:GridView ID="GridView1" runat="server" DataSourceID="ObjectDataSource1">
-                <Columns>
-                    <asp:CommandField ShowSelectButton="True" />
-                </Columns>
-            </asp:GridView>
+
+            <!-- DataTables Example -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    <i class="fas fa-table"></i>
+                    Configuración de usuario
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <asp:GridView ID="gvUsuario" runat="server" AutoGenerateColumns="False" DataKeyNames="UserName" DataSourceID="EntityDataUsuario" CssClass="table table-borderless" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal">
+                            <Columns>
+                                <asp:CommandField ShowEditButton="True" />
+                                <asp:BoundField DataField="UserName" HeaderText="UserName" ReadOnly="True" SortExpression="UserName" />
+                                <asp:BoundField DataField="Password" HeaderText="Password" SortExpression="Password" />
+                                <asp:BoundField DataField="Nombres" HeaderText="Nombres" SortExpression="Nombres" />
+                                <asp:BoundField DataField="Apellidos" HeaderText="Apellidos" SortExpression="Apellidos" />
+                            </Columns>
+                            <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
+                            <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
+                            <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
+                            <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
+                            <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                            <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
+                            <SortedDescendingCellStyle BackColor="#E5E5E5" />
+                            <SortedDescendingHeaderStyle BackColor="#242121" />
+                        </asp:GridView>
+                        <asp:EntityDataSource ID="EntityDataUsuario" runat="server" ConnectionString="name=PapiroWebEntities" DefaultContainerName="PapiroWebEntities" EnableFlattening="False" EnableUpdate="True" EntitySetName="Usuarios">
+                        </asp:EntityDataSource>
+
+                    </div>
+                </div>
+
+                <div class="card-footer small text-muted">Actualizado: </div>
+            </div>
+
+            <!-- Fin del DataTable-->
 
 
-            <asp:EntityDataSource ID="EntityDataSource1" runat="server" ConnectionString="name=PapiroWebEntities" DefaultContainerName="PapiroWebEntities" EnableDelete="True" EnableFlattening="False" EnableInsert="True" EnableUpdate="True" EntitySetName="Usuario">
-            </asp:EntityDataSource>
         </div>
     </div>
 </asp:Content>

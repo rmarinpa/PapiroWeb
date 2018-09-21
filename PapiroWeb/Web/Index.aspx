@@ -41,6 +41,18 @@
 
             <br />
 
+            <div class="jumbotron">
+                <h1 class="display-4">Bienvenido</h1>
+                <p class="lead">Estos son los departamento que puedes acceder</p>
+                <hr class="my-4">
+                <p>
+                    <asp:DropDownList ID="ddlDepartamentos" CssClass="dropdown-toggle" runat="server"></asp:DropDownList>
+                </p>
+                <p class="lead">
+                    <a class="btn btn-primary btn-lg" href="#" role="button">Acceder</a>
+                </p>
+            </div>
+
             <!-- Footer -->
             <footer class="page-footer font-small blue pt-4">
                 <!-- Footer Links -->
@@ -84,12 +96,14 @@
                 <!-- Copyright -->
                 <div class="footer-copyright text-center py-3">
                     ©                    
+                   
                     <script>
                         var f = new Date();
                         document.write(f.getFullYear());
                     </script>
                     Copyright:
-      <a href="https://www.papirochile.cl/">papirochile.cl</a>
+     
+                    <a href="https://www.papirochile.cl/">papirochile.cl</a>
                 </div>
                 <!-- Copyright -->
             </footer>

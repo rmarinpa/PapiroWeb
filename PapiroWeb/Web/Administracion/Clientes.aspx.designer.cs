@@ -58,6 +58,15 @@ namespace PapiroWeb.Web.Administracion {
         protected global::System.Web.UI.WebControls.TextBox txtGiro;
         
         /// <summary>
+        /// Control lblMensaje.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMensaje;
+        
+        /// <summary>
         /// Control txtDireccionEmpresa.
         /// </summary>
         /// <remarks>
@@ -139,13 +148,13 @@ namespace PapiroWeb.Web.Administracion {
         protected global::System.Web.UI.WebControls.DropDownList ddlTipoCargo;
         
         /// <summary>
-        /// Control EntityDataTipoCargo.
+        /// Control EntityDataCargo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.EntityDataSource EntityDataTipoCargo;
+        protected global::System.Web.UI.WebControls.EntityDataSource EntityDataCargo;
         
         /// <summary>
         /// Control txtTelefonoComercial.
@@ -281,15 +290,6 @@ namespace PapiroWeb.Web.Administracion {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlTipoPago;
-        
-        /// <summary>
-        /// Control EntityDataTipoPago.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.EntityDataSource EntityDataTipoPago;
         
         /// <summary>
         /// Control txtLineaCredito.
@@ -481,13 +481,13 @@ namespace PapiroWeb.Web.Administracion {
         protected global::System.Web.UI.WebControls.TextBox txtMaquinas320;
         
         /// <summary>
-        /// Control lblMensaje.
+        /// Control btnAgregar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMensaje;
+        protected global::System.Web.UI.WebControls.Button btnAgregar;
         
         /// <summary>
         /// Control btnModificar.

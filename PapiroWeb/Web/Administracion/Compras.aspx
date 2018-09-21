@@ -6,7 +6,7 @@
     <div class="container">
         <h2 class="text-center">Modulo de compras</h2>
         <div class="row">
-            <div class="col align-self-start">
+            <div class="col">
                 <label for="lblCodigo">Usuario</label>
                 <asp:TextBox ID="txtUsuario" CssClass="form-control" Enabled="false" runat="server"></asp:TextBox>
             </div>

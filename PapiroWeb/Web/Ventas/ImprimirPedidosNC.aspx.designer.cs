@@ -7,36 +7,45 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace PapiroWeb.Web {
+namespace PapiroWeb.Web.Ventas {
     
     
-    public partial class Index {
+    public partial class ImprimirPedidosNC {
         
         /// <summary>
-        /// Control form1.
+        /// Control cldFiltro.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.Calendar cldFiltro;
         
         /// <summary>
-        /// Control LoginStatus1.
+        /// Control gvPedidosAutorizados.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LoginStatus LoginStatus1;
+        protected global::System.Web.UI.WebControls.GridView gvPedidosAutorizados;
         
         /// <summary>
-        /// Control ddlDepartamentos.
+        /// Control gvNotaCredito.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlDepartamentos;
+        protected global::System.Web.UI.WebControls.GridView gvNotaCredito;
+        
+        /// <summary>
+        /// Control btnGenerarInforme.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnGenerarInforme;
     }
 }

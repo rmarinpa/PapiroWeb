@@ -177,11 +177,6 @@
                 <!-- Copyright -->
                 <div class="footer-copyright text-center py-3">
                     ©                    
-                   
-                    <script>
-                        var f = new Date();
-                        document.write(f.getFullYear());
-                    </script>
                     Copyright:
      
                     <a href="https://www.papirochile.cl/">papirochile.cl</a>

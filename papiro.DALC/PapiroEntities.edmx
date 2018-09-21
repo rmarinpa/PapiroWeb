@@ -38,17 +38,17 @@
             <PropertyRef Name="IdComuna" />
           </Key>
           <Property Name="IdComuna" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NombreComuna" Type="int" />
+          <Property Name="NombreComuna" Type="varchar" MaxLength="25" />
         </EntityType>
         <EntityType Name="ContactosComerciales">
           <Key>
             <PropertyRef Name="IdContacto" />
           </Key>
-          <Property Name="IdContacto" Type="int" Nullable="false" />
+          <Property Name="IdContacto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NombreContacto" Type="varchar" MaxLength="50" />
           <Property Name="Telefono" Type="varchar" MaxLength="50" />
           <Property Name="Email" Type="varchar" MaxLength="50" />
-          <Property Name="IdCargo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdCargo" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Departamentos">
           <Key>
@@ -392,18 +392,18 @@
             <PropertyRef Name="IdComuna" />
           </Key>
           <Property Name="IdComuna" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NombreComuna" Type="Int32" />
+          <Property Name="NombreComuna" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Clientes" Relationship="Self.FK__Clientes__IdComu__5AEE82B9" FromRole="Comunas" ToRole="Clientes" />
         </EntityType>
         <EntityType Name="ContactosComerciales">
           <Key>
             <PropertyRef Name="IdContacto" />
           </Key>
-          <Property Name="IdContacto" Type="Int32" Nullable="false" />
+          <Property Name="IdContacto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NombreContacto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="IdCargo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdCargo" Type="Int32" Nullable="false" />
           <NavigationProperty Name="TiposCargos" Relationship="Self.FK_ContactoComercial_TipoCargo" FromRole="ContactosComerciales" ToRole="TiposCargos" />
         </EntityType>
         <EntityType Name="Departamentos">

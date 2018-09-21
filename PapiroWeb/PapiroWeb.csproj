@@ -143,6 +143,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="img\background_login-f94bf29cb8e076b24630a06a9e6a2a7fd3e1eb32b523c467daaec0399dab18b9.png" />
+    <Content Include="Web\Ventas\GenerarNotaCredito.aspx" />
+    <Content Include="Web\Ventas\ImprimirPedidosNC.aspx" />
     <Content Include="Web\Ventas\MenuVentas.aspx" />
     <None Include="Connected Services\ServicioAutenticacion\Autenticacion.disco" />
     <None Include="Connected Services\ServicioAutenticacion\configuration91.svcinfo" />
@@ -391,12 +393,26 @@
     <Compile Include="Web\Administracion\RegistroLlamadas.aspx.designer.cs">
       <DependentUpon>RegistroLlamadas.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Web\Ventas\GenerarNotaCredito.aspx.cs">
+      <DependentUpon>GenerarNotaCredito.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Ventas\GenerarNotaCredito.aspx.designer.cs">
+      <DependentUpon>GenerarNotaCredito.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Web\Ventas\GenerarPedido.aspx.cs">
       <DependentUpon>GenerarPedido.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Web\Ventas\GenerarPedido.aspx.designer.cs">
       <DependentUpon>GenerarPedido.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Ventas\ImprimirPedidosNC.aspx.cs">
+      <DependentUpon>ImprimirPedidosNC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Ventas\ImprimirPedidosNC.aspx.designer.cs">
+      <DependentUpon>ImprimirPedidosNC.aspx</DependentUpon>
     </Compile>
     <Compile Include="Web\Ventas\Layout.Ventas.Master.cs">
       <DependentUpon>Layout.Ventas.Master</DependentUpon>

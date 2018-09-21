@@ -2,7 +2,6 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-
     <!--AutoComplete-->
     <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
@@ -66,7 +65,7 @@
         <div class="form-row">
             <div class="form-group col-md-4">
                 <label for="lblRut">Rut Empresa</label>
-                <asp:TextBox ID="txtRutEmpresa" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtRutEmpresa" CssClass="form-control" runat="server"></asp:TextBox>
                 <asp:Button ID="btnBuscarRut" CssClass="btn btn-primary" runat="server" Text="Buscar por rut" OnClick="btnBuscarRut_Click" />
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                     Verificar estado de cliente</button>
@@ -91,8 +90,8 @@
             </div>
             <div class="form-group col-md-2">
                 <label for="lblComuna">Comuna</label>
-                <asp:DropDownList ID="ddlComunaEmpresa" CssClass="form-control" runat="server" DataSourceID="EntityDataComuna" DataTextField="NombreComuna" DataValueField="idComunas"></asp:DropDownList>
-                <asp:EntityDataSource ID="EntityDataComuna" runat="server" ConnectionString="name=PapiroWebEntities" DefaultContainerName="PapiroWebEntities" EnableFlattening="False" EntitySetName="Comunas">
+                <asp:DropDownList ID="ddlComunaEmpresa" CssClass="form-control" runat="server" DataSourceID="EntityDataComunas" DataTextField="NombreComuna" DataValueField="IdComuna"></asp:DropDownList>
+                <asp:EntityDataSource ID="EntityDataComunas" runat="server" ConnectionString="name=PapiroWebEntities" DefaultContainerName="PapiroWebEntities" EnableFlattening="False" EntitySetName="Comunas">
                 </asp:EntityDataSource>
             </div>
             <div class="form-group col-md-2">
@@ -105,7 +104,28 @@
                 <label for="lblTelefono">Teléfono</label>
                 <asp:TextBox ID="txtTelefonoEmpresa" CssClass="form-control" runat="server"></asp:TextBox>
             </div>
+
+
+
         </div>
+        <!-- DataTables Example -->
+        <div class="card mb-3">
+            <div class="card-header">
+                <i class="fas fa-table"></i>
+                Historial de pedido
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <asp:GridView ID="gvHistorialCliente" runat="server"></asp:GridView>
+                    <table class="table table-bordered" id="dataTable2" width="100%" cellspacing="0">
+                    </table>
+                </div>
+            </div>
+
+            <div class="card-footer small text-muted">Actualizado: </div>
+        </div>
+
+        <!-- Fin del DataTable-->
         <hr />
         <h2 class="text-center">Información contacto comercial</h2>
         <div class="form-row">
@@ -116,8 +136,8 @@
             </div>
             <div class="form-group col-md-2">
                 <label for="lblCargo">Cargo</label>
-                <asp:DropDownList ID="ddlTipoCargo" CssClass="form-control" runat="server" DataSourceID="EntityDataTipoCargo" DataTextField="Cargo" DataValueField="IdTipoCargo"></asp:DropDownList>
-                <asp:EntityDataSource ID="EntityDataTipoCargo" runat="server" ConnectionString="name=PapiroWebEntities" DefaultContainerName="PapiroWebEntities" EnableFlattening="False" EntitySetName="TiposCargos">
+                <asp:DropDownList ID="ddlTipoCargo" CssClass="form-control" runat="server" DataSourceID="EntityDataCargo" DataTextField="Cargo" DataValueField="IdTipoCargo"></asp:DropDownList>
+                <asp:EntityDataSource ID="EntityDataCargo" runat="server" ConnectionString="name=PapiroWebEntities" DefaultContainerName="PapiroWebEntities" EnableFlattening="False" EntitySetName="TiposCargos">
                 </asp:EntityDataSource>
             </div>
             <div class="form-group col-md-2">
@@ -131,16 +151,90 @@
         </div>
         <hr />
 
+
+
+        <h2 class="text-center">Modulo de compras</h2>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="lblCodigo">Código de producto</label>
+                <asp:TextBox ID="txtCodigoProducto" CssClass="form-control" runat="server"></asp:TextBox>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="lblDescripcion">Descripción</label>
+                <asp:TextBox ID="txtDescripcion" CssClass="form-control" runat="server"></asp:TextBox>
+
+            </div>
+            <div class="form-group col-md-2">
+                <label for="lblMarca">Marca</label>
+                <asp:TextBox ID="txtMarca" CssClass="form-control" runat="server"></asp:TextBox>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="lblAncho">Ancho</label>
+                <asp:TextBox ID="txtAncho" CssClass="form-control" runat="server"></asp:TextBox>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="lblLargo">Largo</label>
+                <asp:TextBox ID="txtLargo" CssClass="form-control" runat="server"></asp:TextBox>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="lblarea">Área Calculada</label>
+                <asp:TextBox ID="txtAreaCalculada" CssClass="form-control" runat="server"></asp:TextBox>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="lblAncho">Familia</label>
+                <asp:TextBox ID="txtFamilia" CssClass="form-control" runat="server"></asp:TextBox>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="lblTipoDocumento">Tipo de documento</label>
+                <asp:TextBox ID="txtTipoDocumento" CssClass="form-control" ReadOnly="true" runat="server"></asp:TextBox>
+            </div>
+        </div>
+
+        <h2 class="text-center">Venta</h2>
+        <div class="form-row">
+            <div class="form-group col-md-2">
+                <label for="lblCodigo">Cantidad</label>
+                <asp:TextBox ID="txtCantidad" CssClass="form-control" runat="server"></asp:TextBox>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="lblPreciom2">Precio M2</label>
+                <asp:TextBox ID="txtPrecioM2" CssClass="form-control" runat="server"></asp:TextBox>
+
+            </div>
+            <div class="form-group col-md-2">
+                <label for="lblPrecioMax">Precio Max</label>
+                <asp:TextBox ID="txtPrecioMax" CssClass="form-control" runat="server"></asp:TextBox>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="lblPrecioMin">Precio Min</label>
+                <asp:TextBox ID="txtPrecioMin" CssClass="form-control" runat="server"></asp:TextBox>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="lblAreaTotal">Área Total</label>
+                <asp:TextBox ID="txtAreaTotal" CssClass="form-control" runat="server"></asp:TextBox>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="lblPrecioUni">Precio Uni</label>
+                <asp:TextBox ID="txtPrecioUni" CssClass="form-control" runat="server"></asp:TextBox>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="lblMontoNeto">Monto Neto</label>
+                <asp:TextBox ID="txtMontoNeto" CssClass="form-control" runat="server"></asp:TextBox>
+            </div>
+
+        </div>
+
+
         <!-- DataTables Example -->
         <div class="card mb-3">
             <div class="card-header">
                 <i class="fas fa-table"></i>
-                Data Table Example
+                Historial de pedido
             </div>
             <div class="card-body">
                 <div class="table-responsive">
+                    <asp:GridView ID="GridView1" runat="server"></asp:GridView>
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                        <asp:GridView ID="gvHistorialCliente" runat="server"></asp:GridView>
                     </table>
                 </div>
             </div>
@@ -148,13 +242,12 @@
             <div class="card-footer small text-muted">Actualizado: </div>
         </div>
 
+        <!-- Fin del DataTable-->
+
+        <asp:Button ID="btnGenerarNotaPedido" CssClass="btn btn-primary" runat="server" Text="Generar Nota de Pedido" />
     </div>
 
-    <asp:Button ID="btnModificar" CssClass="btn btn-primary" runat="server" Text="Modificar" />
-    <asp:Button ID="btnEliminar" CssClass="btn btn-primary" runat="server" Text="Eliminar" />
-    <asp:Button ID="btnLimpiar" CssClass="btn btn-primary" runat="server" Text="Limpiar" />
 
-    </div>
 
     <!--MODAL -->
 
@@ -163,14 +256,12 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Estado de cuenta de cliente</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                    <asp:GridView ID="gvEstadoCliente" runat="server"></asp:GridView>
                 </div>
                 <div class="modal-body">
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-primary">Imprimir</button>
                     </div>
                 </div>
 

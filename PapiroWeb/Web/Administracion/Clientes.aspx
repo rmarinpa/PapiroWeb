@@ -1,4 +1,4 @@
-﻿    <%@ Page Title="Clientes" Language="C#" MasterPageFile="~/Web/Administracion/LayoutAdmin.Master" AutoEventWireup="true" CodeBehind="Clientes.aspx.cs" Inherits="PapiroWeb.Web.Administracion.Clientes" %>
+﻿<%@ Page Title="Clientes" Language="C#" MasterPageFile="~/Web/Administracion/LayoutAdmin.Master" AutoEventWireup="true" CodeBehind="Clientes.aspx.cs" Inherits="PapiroWeb.Web.Administracion.Clientes" %>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -70,6 +70,7 @@
                 <asp:TextBox ID="txtRutEmpresa" CssClass="form-control" runat="server"></asp:TextBox>
                 <asp:Button ID="btnBuscarRut" CssClass="btn btn-primary" runat="server" Text="Buscar por rut" OnClick="btnBuscarRut_Click" />
             </div>
+
             <div class="form-group col-md-4">
                 <label for="lblRazonSocial">Razón social</label>
                 <asp:TextBox ID="txtRazonSocial" CssClass="form-control" runat="server"></asp:TextBox>
@@ -80,6 +81,9 @@
                 <asp:TextBox ID="txtGiro" CssClass="form-control" runat="server"></asp:TextBox>
 
             </div>
+            <div class="form-group">
+                <asp:Label ID="lblMensaje" runat="server" Text=""></asp:Label>
+            </div>
         </div>
 
         <div class="form-row">
@@ -89,7 +93,7 @@
             </div>
             <div class="form-group col-md-2">
                 <label for="lblComuna">Comuna</label>
-                <asp:DropDownList ID="ddlComunaEmpresa" CssClass="form-control" runat="server" DataSourceID="EntityDataComuna" DataTextField="NombreComuna" DataValueField="idComunas"></asp:DropDownList>
+                <asp:DropDownList ID="ddlComunaEmpresa" CssClass="form-control" runat="server" DataSourceID="EntityDataComuna" DataTextField="NombreComuna" DataValueField="IdComuna"></asp:DropDownList>
                 <asp:EntityDataSource ID="EntityDataComuna" runat="server" ConnectionString="name=PapiroWebEntities" DefaultContainerName="PapiroWebEntities" EnableFlattening="False" EntitySetName="Comunas">
                 </asp:EntityDataSource>
             </div>
@@ -114,8 +118,8 @@
             </div>
             <div class="form-group col-md-2">
                 <label for="lblCargo">Cargo</label>
-                <asp:DropDownList ID="ddlTipoCargo" CssClass="form-control" runat="server" DataSourceID="EntityDataTipoCargo" DataTextField="Cargo" DataValueField="IdTipoCargo"></asp:DropDownList>
-                <asp:EntityDataSource ID="EntityDataTipoCargo" runat="server" ConnectionString="name=PapiroWebEntities" DefaultContainerName="PapiroWebEntities" EnableFlattening="False" EntitySetName="TiposCargos">
+                <asp:DropDownList ID="ddlTipoCargo" CssClass="form-control" runat="server" DataSourceID="EntityDataCargo" DataTextField="Cargo" DataValueField="IdTipoCargo"></asp:DropDownList>
+                <asp:EntityDataSource ID="EntityDataCargo" runat="server" ConnectionString="name=PapiroWebEntities" DefaultContainerName="PapiroWebEntities" EnableFlattening="False" EntitySetName="TiposCargos">
                 </asp:EntityDataSource>
             </div>
             <div class="form-group col-md-2">
@@ -188,9 +192,7 @@
             </div>
             <div class="form-group col-md-2">
                 <label for="lblFormaPago">Forma de pago</label>
-                <asp:DropDownList ID="ddlTipoPago" CssClass="form-control" runat="server" DataSourceID="EntityDataTipoPago" DataTextField="NombreTipoPago" DataValueField="IdTipoPago"></asp:DropDownList>
-                <asp:EntityDataSource ID="EntityDataTipoPago" runat="server" ConnectionString="name=PapiroWebEntities" DefaultContainerName="PapiroWebEntities" EnableFlattening="False" EntitySetName="TiposPagos">
-                </asp:EntityDataSource>
+                <asp:DropDownList ID="ddlTipoPago" CssClass="form-control" runat="server"></asp:DropDownList>
             </div>
             <div class="form-group col-md-2">
                 <label for="lblLineaCredito">Línea de credito</label>
@@ -282,12 +284,10 @@
                 <label for="lblEjecCobranza">Maquinas 3,20MT</label>
                 <asp:TextBox ID="txtMaquinas320" CssClass="form-control" runat="server"></asp:TextBox>
             </div>
-            <div class="form-group">
-                <asp:Label ID="lblMensaje" runat="server" Text=""></asp:Label>
-            </div>
+
         </div>
         <hr />
-
+        <asp:Button ID="btnAgregar" CssClass="btn btn-primary" runat="server" Text="Agregar" OnClick="btnAgregar_Click" />
         <asp:Button ID="btnModificar" CssClass="btn btn-primary" runat="server" Text="Modificar" />
         <asp:Button ID="btnEliminar" CssClass="btn btn-primary" runat="server" Text="Eliminar" />
         <asp:Button ID="btnLimpiar" CssClass="btn btn-primary" runat="server" Text="Limpiar" />

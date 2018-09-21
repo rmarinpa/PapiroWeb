@@ -75,6 +75,64 @@ namespace papiro.Negocio
             get { return _idContactoComercial; }
             set { _idContactoComercial = value; }
         }
+
+        private int _condicion;
+
+        public int Condicion
+        {
+            get { return _condicion; }
+            set { _condicion = value; }
+        }
+
+        private string _lineaCredito;
+
+        public string LineaCredito
+        {
+            get { return _lineaCredito; }
+            set { _lineaCredito = value; }
+        }
+
+        private string _dicom;
+
+        public string Dicom
+        {
+            get { return _dicom; }
+            set { _dicom = value; }
+        }
+
+        private string _observacion;
+
+        public string Observacion
+        {
+            get { return _observacion; }
+            set { _observacion = value; }
+        }
+
+        private DateTime _fechaActualizacion;
+
+        public DateTime FechaActualizacion
+        {
+            get { return _fechaActualizacion; }
+            set { _fechaActualizacion = value; }
+        }
+
+        private string _fichaCliente;
+
+        public string FichaCliente
+        {
+            get { return _fichaCliente; }
+            set { _fichaCliente = value; }
+        }
+        private DateTime _fechaIngreso;
+
+        public DateTime FechaIngreso
+        {
+            get { return _fechaIngreso; }
+            set { _fechaIngreso = value; }
+        }
+
+
+
         public bool Create()
         {
             try
@@ -85,10 +143,18 @@ namespace papiro.Negocio
                 clientes.Giro = this.Giro;
                 clientes.Direccion = this.Direccion;
                 clientes.TelefonoContacto = this.TelefonoContacto;
-                clientes.IdCiudad = this.IdCiudad;
-                clientes.IdComuna = this.IdComuna;
                 clientes.IdTipoPago = this.IdTipoPago;
                 clientes.IdContactoComercial = this.IdTipoPago;
+                clientes.Condicion = this.Condicion;
+                clientes.LineaDeCredito = this.LineaCredito;
+                clientes.Dicom = this.Dicom;
+                clientes.Observacion = this.Observacion;
+                clientes.FechaDeActualizacion = this.FechaIngreso.ToShortDateString();
+                clientes.FechaIngreso = this.FechaIngreso.ToShortDateString();
+                clientes.IdCiudad = this.IdCiudad;
+                clientes.IdComuna = this.IdComuna;
+
+
 
                 db.Clientes.Add(clientes);
 

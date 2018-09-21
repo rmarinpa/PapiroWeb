@@ -75,25 +75,23 @@ namespace papiro.Negocio
             }
         }
 
-        public IEnumerable<Object> ReadAll()
+        public IEnumerable<Object> ReadAllUser()
         {
             try
             {
-                var usuarios = (from a in db.Usuarios
-                                join de in db.Departamentos
-                                on a.IdDepartamento equals de.IdDepartamento
+                var usuarios = (from u in db.Usuarios
                                 select new
                                 {
-                                    a.UserName,
-                                    de.NombreDepartamento
-                                }
-                                 ).ToList();
+                                    Nombres = u.Nombres + " " + u.Apellidos,
+                                    UserName = u.UserName,
+                                    Password = u.Password
+                                }).ToList();
                 return usuarios;
             }
             catch (Exception)
             {
 
-                return null;
+                throw;
             }
         }
 

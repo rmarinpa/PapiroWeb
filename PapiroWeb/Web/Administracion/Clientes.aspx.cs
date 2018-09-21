@@ -114,6 +114,54 @@ namespace PapiroWeb.Web.Administracion
 
         }
 
+
+        protected void btnAgregar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Cliente cliente = new Cliente();
+
+                cliente.RutEmpresa = txtRutEmpresa.Text;
+
+                if (cliente.Read())
+                {
+                    cliente.RazonSocial = txtRazonSocial.Text;
+                    cliente.Giro = txtGiro.Text;
+                    cliente.Direccion = txtDireccionEmpresa.Text;
+                    cliente.TelefonoContacto = txtTelefonoEmpresa.Text;
+                    cliente.IdTipoPago = int.Parse(ddlTipoPago.SelectedValue);
+
+
+                }
+                else
+                {
+
+                }
+                ContactoComercial contactoComercial = new ContactoComercial();
+                contactoComercial.IdContacto = int.Parse(txtIDContacto.Text);
+
+                if (contactoComercial.Read())
+                {
+                    txtNombreContacto.Text = contactoComercial.NombreConta;
+                    txtTelefonoComercial.Text = contactoComercial.Telefono;
+                    txtEmailContacto.Text = contactoComercial.Email;
+                    ddlTipoCargo.SelectedValue = contactoComercial.IdCargo.ToString();
+                }
+            }
+            catch (ArgumentException ex)
+            {
+
+                lblMensaje.Text = ex.Message;
+            }
+            catch (Exception ex)
+            {
+                lblMensaje.Text = "Error al registrar cliente";
+            }
+        }
+
+
+        // Metodos para la busqueda de rut con JQUERY
+
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public static List<string> GetRazon(string pre)
