@@ -19,7 +19,7 @@ namespace papiro.DALC
             this.Productos = new HashSet<Productos>();
         }
     
-        public int IdTIpoProducto { get; set; }
+        public int IdTipoProducto { get; set; }
         public string TipoProducto1 { get; set; }
     
         public virtual ICollection<Productos> Productos { get; set; }

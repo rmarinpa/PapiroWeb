@@ -20,13 +20,16 @@ namespace papiro.DALC
             this.Ventas = new HashSet<Ventas>();
         }
     
-        public int IdProducto { get; set; }
         public int Codigo { get; set; }
-        public int Codigo2 { get; set; }
-        public int Descripcion { get; set; }
+        public string Descripcion { get; set; }
+        public string Marca { get; set; }
+        public decimal Ancho { get; set; }
+        public decimal Largo { get; set; }
+        public decimal Area { get; set; }
+        public string Familia { get; set; }
         public int Stock { get; set; }
-        public Nullable<int> Precio { get; set; }
-        public Nullable<int> IdTipoProducto { get; set; }
+        public int Precio { get; set; }
+        public int IdTipoProducto { get; set; }
     
         public virtual ICollection<DetalleFacturas> DetalleFacturas { get; set; }
         public virtual TipoProducto TipoProducto { get; set; }

@@ -108,6 +108,7 @@ namespace papiro.Negocio
             set { _observacion = value; }
         }
 
+
         private DateTime _fechaActualizacion;
 
         public DateTime FechaActualizacion
@@ -123,6 +124,7 @@ namespace papiro.Negocio
             get { return _fichaCliente; }
             set { _fichaCliente = value; }
         }
+
         private DateTime _fechaIngreso;
 
         public DateTime FechaIngreso
@@ -130,7 +132,6 @@ namespace papiro.Negocio
             get { return _fechaIngreso; }
             set { _fechaIngreso = value; }
         }
-
 
 
         public bool Create()
@@ -144,17 +145,15 @@ namespace papiro.Negocio
                 clientes.Direccion = this.Direccion;
                 clientes.TelefonoContacto = this.TelefonoContacto;
                 clientes.IdTipoPago = this.IdTipoPago;
-                clientes.IdContactoComercial = this.IdTipoPago;
+                clientes.IdContactoComercial = this.IdContactoComercial;
                 clientes.Condicion = this.Condicion;
                 clientes.LineaDeCredito = this.LineaCredito;
                 clientes.Dicom = this.Dicom;
                 clientes.Observacion = this.Observacion;
-                clientes.FechaDeActualizacion = this.FechaIngreso.ToShortDateString();
-                clientes.FechaIngreso = this.FechaIngreso.ToShortDateString();
+                clientes.FechaDeActualizacion = this.FechaActualizacion;
+                clientes.FechaIngreso = this.FechaIngreso;
                 clientes.IdCiudad = this.IdCiudad;
                 clientes.IdComuna = this.IdComuna;
-
-
 
                 db.Clientes.Add(clientes);
 
@@ -226,10 +225,16 @@ namespace papiro.Negocio
                 this.Giro = clientes.Giro;
                 this.Direccion = clientes.Direccion;
                 this.TelefonoContacto = clientes.TelefonoContacto;
-                this.IdCiudad = clientes.IdCiudad;
-                this.IdComuna = clientes.IdComuna;
                 this.IdTipoPago = clientes.IdTipoPago;
                 this.IdContactoComercial = clientes.IdContactoComercial;
+                this.Condicion = clientes.Condicion;
+                this.LineaCredito = clientes.LineaDeCredito;
+                this.Dicom = clientes.Dicom;
+                this.Observacion = clientes.Observacion;
+                this.FechaActualizacion = clientes.FechaDeActualizacion;
+                this.FechaIngreso = clientes.FechaIngreso;
+                this.IdCiudad = clientes.IdCiudad;
+                this.IdComuna = clientes.IdComuna;
 
                 return true;
 

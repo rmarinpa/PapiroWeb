@@ -38,6 +38,16 @@ namespace PapiroWeb.Web.Administracion
                     ddlCiudadEmpresa.SelectedValue = cliente.IdCiudad.ToString();
                     ddlTipoPago.SelectedValue = cliente.IdTipoPago.ToString();
                     txtIDContacto.Text = cliente.IdContactoComercial.ToString();
+                    ddlTipoPago.SelectedValue = cliente.IdTipoPago.ToString();
+                    txtCondicionPago.Text = cliente.Condicion.ToString();
+                    txtLineaCredito.Text = cliente.LineaCredito;
+                    txtAreaObservacion.Text = cliente.Observacion;
+                    txtFichaCliente.Text = cliente.FichaCliente;
+                    txtLineaCredito.Text = cliente.LineaCredito;
+                    txtDicom.Text = cliente.Dicom;
+                    txtAreaObservacion.Text = cliente.Observacion;
+                    txtFechaActualizacion.Text = DateTime.Now.ToShortDateString();
+                    txtFechaIngreso.Text = DateTime.Now.ToShortDateString();
 
                 }
                 else
@@ -54,6 +64,10 @@ namespace PapiroWeb.Web.Administracion
                     txtTelefonoComercial.Text = contactoComercial.Telefono;
                     txtEmailContacto.Text = contactoComercial.Email;
                     ddlTipoCargo.SelectedValue = contactoComercial.IdCargo.ToString();
+                }
+                else
+                {
+                    lblMensaje.Text = "No se encuentra contacto";
                 }
 
 

@@ -292,6 +292,15 @@ namespace PapiroWeb.Web.Administracion {
         protected global::System.Web.UI.WebControls.DropDownList ddlTipoPago;
         
         /// <summary>
+        /// Control EntityDataTipoPago.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.EntityDataSource EntityDataTipoPago;
+        
+        /// <summary>
         /// Control txtLineaCredito.
         /// </summary>
         /// <remarks>
@@ -382,13 +391,13 @@ namespace PapiroWeb.Web.Administracion {
         protected global::System.Web.UI.WebControls.DropDownList ddlEjecCobranza;
         
         /// <summary>
-        /// Control cldIngreso.
+        /// Control txtAreaObservacion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar cldIngreso;
+        protected global::System.Web.UI.WebControls.TextBox txtAreaObservacion;
         
         /// <summary>
         /// Control txtFechaIngreso.
@@ -398,15 +407,6 @@ namespace PapiroWeb.Web.Administracion {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtFechaIngreso;
-        
-        /// <summary>
-        /// Control cldActualizacion.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar cldActualizacion;
         
         /// <summary>
         /// Control txtFechaActualizacion.

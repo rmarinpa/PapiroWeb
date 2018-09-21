@@ -172,7 +172,7 @@
             </div>
             <div class="form-group col-md-2">
                 <label for="lblComuna">Comuna</label>
-                <asp:DropDownList ID="ddlComuna" CssClass="form-control" runat="server"></asp:DropDownList>
+                <asp:DropDownList ID="ddlComuna" CssClass="form-control" runat="server" DataSourceID="EntityDataComuna" DataTextField="NombreComuna" DataValueField="IdComuna"></asp:DropDownList>
             </div>
             <div class="form-group col-md-6">
                 <label for="lblDireccionDespacho">Dirección</label>
@@ -192,7 +192,9 @@
             </div>
             <div class="form-group col-md-2">
                 <label for="lblFormaPago">Forma de pago</label>
-                <asp:DropDownList ID="ddlTipoPago" CssClass="form-control" runat="server"></asp:DropDownList>
+                <asp:DropDownList ID="ddlTipoPago" CssClass="form-control" runat="server" DataSourceID="EntityDataTipoPago" DataTextField="NombreTipoPago" DataValueField="IdTipoPago"></asp:DropDownList>
+                <asp:EntityDataSource ID="EntityDataTipoPago" runat="server" ConnectionString="name=PapiroWebEntities" DefaultContainerName="PapiroWebEntities" EnableFlattening="False" EntitySetName="TiposPagos" EnableInsert="True">
+                </asp:EntityDataSource>
             </div>
             <div class="form-group col-md-2">
                 <label for="lblLineaCredito">Línea de credito</label>
@@ -244,17 +246,15 @@
         <div class="form-row">
             <div class="form-group col-md-12">
                 <label for="lblObservaciones">Observaciones</label>
-                <textarea id="txtAreaObservacion" class="form-control" rows="5"></textarea>
+                <asp:TextBox ID="txtAreaObservacion" CssClass="form-control" Height="100" runat="server"></asp:TextBox>
             </div>
             <div class="form-group col-md-6">
                 <label for="lblFechaIngreso">Fecha de ingreso</label>
-                <asp:Calendar ID="cldIngreso" runat="server"></asp:Calendar>
-                <asp:TextBox ID="txtFechaIngreso" runat="server" Visible="false"></asp:TextBox>
+                <asp:TextBox ID="txtFechaIngreso" runat="server"></asp:TextBox>
             </div>
             <div class="form-group col-md-6">
                 <label for="lblFechaActualizacion">Fecha de actualización</label>
-                <asp:Calendar ID="cldActualizacion" runat="server"></asp:Calendar>
-                <asp:TextBox ID="txtFechaActualizacion" runat="server" Visible="false"></asp:TextBox>
+                <asp:TextBox ID="txtFechaActualizacion" runat="server"></asp:TextBox>
             </div>
             <div class="form-group col-md-1">
                 <label for="lblReferencia">Referencia</label>

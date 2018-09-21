@@ -17,19 +17,19 @@
             <PropertyRef Name="RutEmpresa" />
           </Key>
           <Property Name="RutEmpresa" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="RazonSocial" Type="varchar" MaxLength="50" />
-          <Property Name="Giro" Type="varchar" MaxLength="50" />
-          <Property Name="Direccion" Type="varchar" MaxLength="50" />
-          <Property Name="TelefonoContacto" Type="varchar" MaxLength="50" />
+          <Property Name="RazonSocial" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Giro" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Direccion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TelefonoContacto" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="IdTipoPago" Type="int" Nullable="false" />
           <Property Name="IdContactoComercial" Type="int" Nullable="false" />
-          <Property Name="Condicion" Type="int" />
-          <Property Name="LineaDeCredito" Type="varchar" MaxLength="50" />
-          <Property Name="Dicom" Type="varchar" MaxLength="50" />
-          <Property Name="Observacion" Type="varchar" MaxLength="255" />
-          <Property Name="FechaDeActualizacion" Type="varchar" MaxLength="50" />
-          <Property Name="FichaCliente" Type="varchar" MaxLength="50" />
-          <Property Name="FechaIngreso" Type="varchar" MaxLength="50" />
+          <Property Name="Condicion" Type="int" Nullable="false" />
+          <Property Name="LineaDeCredito" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Dicom" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Observacion" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="FechaDeActualizacion" Type="datetime" Nullable="false" />
+          <Property Name="FichaCliente" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FechaIngreso" Type="datetime" Nullable="false" />
           <Property Name="IdComuna" Type="int" Nullable="false" />
           <Property Name="IdCiudad" Type="int" Nullable="false" />
         </EntityType>
@@ -64,7 +64,7 @@
           <Property Name="IdDetalleFactura" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Cantidad" Type="int" />
           <Property Name="idFactura" Type="int" Nullable="false" />
-          <Property Name="idProducto" Type="int" Nullable="false" />
+          <Property Name="idCodigoProducto" Type="int" Nullable="false" />
           <Property Name="AreaCalculada" Type="int" Nullable="false" />
           <Property Name="AreaTotal" Type="int" Nullable="false" />
           <Property Name="VentaRollo" Type="int" Nullable="false" />
@@ -86,25 +86,28 @@
           <Property Name="IdFactura" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdRutEmpresa" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Username" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="Fecha" Type="datetime" />
+          <Property Name="Fecha" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="Productos">
           <Key>
-            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="Codigo" />
           </Key>
-          <Property Name="IdProducto" Type="int" Nullable="false" />
           <Property Name="Codigo" Type="int" Nullable="false" />
-          <Property Name="Codigo2" Type="int" Nullable="false" />
-          <Property Name="Descripcion" Type="int" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Marca" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Ancho" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Largo" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Area" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Familia" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Stock" Type="int" Nullable="false" />
-          <Property Name="Precio" Type="int" />
-          <Property Name="IdTipoProducto" Type="int" />
+          <Property Name="Precio" Type="int" Nullable="false" />
+          <Property Name="IdTipoProducto" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="TipoProducto">
           <Key>
-            <PropertyRef Name="IdTIpoProducto" />
+            <PropertyRef Name="IdTipoProducto" />
           </Key>
-          <Property Name="IdTIpoProducto" Type="int" Nullable="false" />
+          <Property Name="IdTipoProducto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TipoProducto" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="TiposCargos">
@@ -136,7 +139,7 @@
             <PropertyRef Name="IdVenta" />
           </Key>
           <Property Name="IdVenta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="IdProducto" Type="int" Nullable="false" />
+          <Property Name="IdCodigoProducto" Type="int" Nullable="false" />
           <Property Name="RutEmpresa" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="IdTipoPago" Type="int" />
           <Property Name="Fecha" Type="datetime" />
@@ -207,10 +210,10 @@
           <End Role="DetalleFacturas" Type="Self.DetalleFacturas" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Productos">
-              <PropertyRef Name="IdProducto" />
+              <PropertyRef Name="Codigo" />
             </Principal>
             <Dependent Role="DetalleFacturas">
-              <PropertyRef Name="idProducto" />
+              <PropertyRef Name="idCodigoProducto" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -239,11 +242,11 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Productos_TipoProducto">
-          <End Role="TipoProducto" Type="Self.TipoProducto" Multiplicity="0..1" />
+          <End Role="TipoProducto" Type="Self.TipoProducto" Multiplicity="1" />
           <End Role="Productos" Type="Self.Productos" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TipoProducto">
-              <PropertyRef Name="IdTIpoProducto" />
+              <PropertyRef Name="IdTipoProducto" />
             </Principal>
             <Dependent Role="Productos">
               <PropertyRef Name="IdTipoProducto" />
@@ -267,10 +270,10 @@
           <End Role="Ventas" Type="Self.Ventas" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Productos">
-              <PropertyRef Name="IdProducto" />
+              <PropertyRef Name="Codigo" />
             </Principal>
             <Dependent Role="Ventas">
-              <PropertyRef Name="IdProducto" />
+              <PropertyRef Name="IdCodigoProducto" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -367,19 +370,19 @@
             <PropertyRef Name="RutEmpresa" />
           </Key>
           <Property Name="RutEmpresa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="RazonSocial" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Giro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="TelefonoContacto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RazonSocial" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Giro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TelefonoContacto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="IdTipoPago" Type="Int32" Nullable="false" />
           <Property Name="IdContactoComercial" Type="Int32" Nullable="false" />
-          <Property Name="Condicion" Type="Int32" />
-          <Property Name="LineaDeCredito" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Dicom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Observacion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="FechaDeActualizacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="FichaCliente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="FechaIngreso" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Condicion" Type="Int32" Nullable="false" />
+          <Property Name="LineaDeCredito" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Dicom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Observacion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FechaDeActualizacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FichaCliente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FechaIngreso" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="IdComuna" Type="Int32" Nullable="false" />
           <Property Name="IdCiudad" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Ciudades" Relationship="Self.FK_Clientes_Ciudades" FromRole="Clientes" ToRole="Ciudades" />
@@ -421,7 +424,7 @@
           <Property Name="IdDetalleFactura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Cantidad" Type="Int32" />
           <Property Name="idFactura" Type="Int32" Nullable="false" />
-          <Property Name="idProducto" Type="Int32" Nullable="false" />
+          <Property Name="idCodigoProducto" Type="Int32" Nullable="false" />
           <Property Name="AreaCalculada" Type="Int32" Nullable="false" />
           <Property Name="AreaTotal" Type="Int32" Nullable="false" />
           <Property Name="VentaRollo" Type="Int32" Nullable="false" />
@@ -445,31 +448,34 @@
           <Property Name="IdFactura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IdRutEmpresa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Username" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Fecha" Type="DateTime" Precision="3" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="Clientes" Relationship="Self.FK_FacturasVentas_Clientes" FromRole="Facturas" ToRole="Clientes" />
           <NavigationProperty Name="DetalleFacturas" Relationship="Self.FK_DetalleFacturas_Facturas" FromRole="Facturas" ToRole="DetalleFacturas" />
           <NavigationProperty Name="Usuarios" Relationship="Self.FK_Facturas_Usuarios" FromRole="Facturas" ToRole="Usuarios" />
         </EntityType>
         <EntityType Name="Productos">
           <Key>
-            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="Codigo" />
           </Key>
-          <Property Name="IdProducto" Type="Int32" Nullable="false" />
           <Property Name="Codigo" Type="Int32" Nullable="false" />
-          <Property Name="Codigo2" Type="Int32" Nullable="false" />
-          <Property Name="Descripcion" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Marca" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Ancho" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Largo" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Area" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Familia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Stock" Type="Int32" Nullable="false" />
-          <Property Name="Precio" Type="Int32" />
-          <Property Name="IdTipoProducto" Type="Int32" />
+          <Property Name="Precio" Type="Int32" Nullable="false" />
+          <Property Name="IdTipoProducto" Type="Int32" Nullable="false" />
           <NavigationProperty Name="DetalleFacturas" Relationship="Self.FK_DetalleFacturas_Productos" FromRole="Productos" ToRole="DetalleFacturas" />
           <NavigationProperty Name="TipoProducto" Relationship="Self.FK_Productos_TipoProducto" FromRole="Productos" ToRole="TipoProducto" />
           <NavigationProperty Name="Ventas" Relationship="Self.FK_Ventas_Productos" FromRole="Productos" ToRole="Ventas" />
         </EntityType>
         <EntityType Name="TipoProducto">
           <Key>
-            <PropertyRef Name="IdTIpoProducto" />
+            <PropertyRef Name="IdTipoProducto" />
           </Key>
-          <Property Name="IdTIpoProducto" Type="Int32" Nullable="false" />
+          <Property Name="IdTipoProducto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TipoProducto1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Productos" Relationship="Self.FK_Productos_TipoProducto" FromRole="TipoProducto" ToRole="Productos" />
         </EntityType>
@@ -506,7 +512,7 @@
             <PropertyRef Name="IdVenta" />
           </Key>
           <Property Name="IdVenta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdProducto" Type="Int32" Nullable="false" />
+          <Property Name="IdCodigoProducto" Type="Int32" Nullable="false" />
           <Property Name="RutEmpresa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="IdTipoPago" Type="Int32" />
           <Property Name="Fecha" Type="DateTime" Precision="3" />
@@ -604,10 +610,10 @@
           <End Role="DetalleFacturas" Type="Self.DetalleFacturas" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Productos">
-              <PropertyRef Name="IdProducto" />
+              <PropertyRef Name="Codigo" />
             </Principal>
             <Dependent Role="DetalleFacturas">
-              <PropertyRef Name="idProducto" />
+              <PropertyRef Name="idCodigoProducto" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -624,11 +630,11 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Productos_TipoProducto">
-          <End Role="TipoProducto" Type="Self.TipoProducto" Multiplicity="0..1" />
+          <End Role="TipoProducto" Type="Self.TipoProducto" Multiplicity="1" />
           <End Role="Productos" Type="Self.Productos" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TipoProducto">
-              <PropertyRef Name="IdTIpoProducto" />
+              <PropertyRef Name="IdTipoProducto" />
             </Principal>
             <Dependent Role="Productos">
               <PropertyRef Name="IdTipoProducto" />
@@ -640,10 +646,10 @@
           <End Role="Ventas" Type="Self.Ventas" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Productos">
-              <PropertyRef Name="IdProducto" />
+              <PropertyRef Name="Codigo" />
             </Principal>
             <Dependent Role="Ventas">
-              <PropertyRef Name="IdProducto" />
+              <PropertyRef Name="IdCodigoProducto" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -791,7 +797,7 @@
                 <ScalarProperty Name="IdDetalleFactura" ColumnName="IdDetalleFactura" />
                 <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
                 <ScalarProperty Name="idFactura" ColumnName="idFactura" />
-                <ScalarProperty Name="idProducto" ColumnName="idProducto" />
+                <ScalarProperty Name="idCodigoProducto" ColumnName="idCodigoProducto" />
                 <ScalarProperty Name="AreaCalculada" ColumnName="AreaCalculada" />
                 <ScalarProperty Name="AreaTotal" ColumnName="AreaTotal" />
                 <ScalarProperty Name="VentaRollo" ColumnName="VentaRollo" />
@@ -821,10 +827,13 @@
           <EntitySetMapping Name="Productos">
             <EntityTypeMapping TypeName="PapiroWebModel.Productos">
               <MappingFragment StoreEntitySet="Productos">
-                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
                 <ScalarProperty Name="Codigo" ColumnName="Codigo" />
-                <ScalarProperty Name="Codigo2" ColumnName="Codigo2" />
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Marca" ColumnName="Marca" />
+                <ScalarProperty Name="Ancho" ColumnName="Ancho" />
+                <ScalarProperty Name="Largo" ColumnName="Largo" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="Familia" ColumnName="Familia" />
                 <ScalarProperty Name="Stock" ColumnName="Stock" />
                 <ScalarProperty Name="Precio" ColumnName="Precio" />
                 <ScalarProperty Name="IdTipoProducto" ColumnName="IdTipoProducto" />
@@ -834,7 +843,7 @@
           <EntitySetMapping Name="TipoProducto">
             <EntityTypeMapping TypeName="PapiroWebModel.TipoProducto">
               <MappingFragment StoreEntitySet="TipoProducto">
-                <ScalarProperty Name="IdTIpoProducto" ColumnName="IdTIpoProducto" />
+                <ScalarProperty Name="IdTipoProducto" ColumnName="IdTipoProducto" />
                 <ScalarProperty Name="TipoProducto1" ColumnName="TipoProducto" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -870,7 +879,7 @@
             <EntityTypeMapping TypeName="PapiroWebModel.Ventas">
               <MappingFragment StoreEntitySet="Ventas">
                 <ScalarProperty Name="IdVenta" ColumnName="IdVenta" />
-                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="IdCodigoProducto" ColumnName="IdCodigoProducto" />
                 <ScalarProperty Name="RutEmpresa" ColumnName="RutEmpresa" />
                 <ScalarProperty Name="IdTipoPago" ColumnName="IdTipoPago" />
                 <ScalarProperty Name="Fecha" ColumnName="Fecha" />

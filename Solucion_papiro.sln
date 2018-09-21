@@ -16,8 +16,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutenticacionService", "Aut
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "papiro.PruebasUnitarias", "papiro.PruebasUnitarias\papiro.PruebasUnitarias.csproj", "{D7E572FE-0585-4F47-AF61-91788FB8E1EA}"
 EndProject
-Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "papiro.Informes", "papiro.Informes\papiro.Informes.rptproj", "{F305D63A-A47B-432E-86F6-2E8586445689}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,14 +53,6 @@ Global
 		{D7E572FE-0585-4F47-AF61-91788FB8E1EA}.DebugLocal|Any CPU.Build.0 = Debug|Any CPU
 		{D7E572FE-0585-4F47-AF61-91788FB8E1EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D7E572FE-0585-4F47-AF61-91788FB8E1EA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F305D63A-A47B-432E-86F6-2E8586445689}.Debug|Any CPU.ActiveCfg = Debug
-		{F305D63A-A47B-432E-86F6-2E8586445689}.Debug|Any CPU.Build.0 = Debug
-		{F305D63A-A47B-432E-86F6-2E8586445689}.Debug|Any CPU.Deploy.0 = Debug
-		{F305D63A-A47B-432E-86F6-2E8586445689}.DebugLocal|Any CPU.ActiveCfg = DebugLocal
-		{F305D63A-A47B-432E-86F6-2E8586445689}.DebugLocal|Any CPU.Build.0 = DebugLocal
-		{F305D63A-A47B-432E-86F6-2E8586445689}.Release|Any CPU.ActiveCfg = Release
-		{F305D63A-A47B-432E-86F6-2E8586445689}.Release|Any CPU.Build.0 = Release
-		{F305D63A-A47B-432E-86F6-2E8586445689}.Release|Any CPU.Deploy.0 = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

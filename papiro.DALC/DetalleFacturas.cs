@@ -17,7 +17,7 @@ namespace papiro.DALC
         public int IdDetalleFactura { get; set; }
         public Nullable<int> Cantidad { get; set; }
         public int idFactura { get; set; }
-        public int idProducto { get; set; }
+        public int idCodigoProducto { get; set; }
         public int AreaCalculada { get; set; }
         public int AreaTotal { get; set; }
         public int VentaRollo { get; set; }

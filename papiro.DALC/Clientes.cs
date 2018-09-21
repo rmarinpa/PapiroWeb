@@ -27,13 +27,13 @@ namespace papiro.DALC
         public string TelefonoContacto { get; set; }
         public int IdTipoPago { get; set; }
         public int IdContactoComercial { get; set; }
-        public Nullable<int> Condicion { get; set; }
+        public int Condicion { get; set; }
         public string LineaDeCredito { get; set; }
         public string Dicom { get; set; }
         public string Observacion { get; set; }
-        public string FechaDeActualizacion { get; set; }
+        public System.DateTime FechaDeActualizacion { get; set; }
         public string FichaCliente { get; set; }
-        public string FechaIngreso { get; set; }
+        public System.DateTime FechaIngreso { get; set; }
         public int IdComuna { get; set; }
         public int IdCiudad { get; set; }
     

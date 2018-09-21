@@ -15,7 +15,7 @@ namespace papiro.DALC
     public partial class Ventas
     {
         public int IdVenta { get; set; }
-        public int IdProducto { get; set; }
+        public int IdCodigoProducto { get; set; }
         public string RutEmpresa { get; set; }
         public Nullable<int> IdTipoPago { get; set; }
         public Nullable<System.DateTime> Fecha { get; set; }

@@ -22,7 +22,7 @@ namespace papiro.DALC
         public int IdFactura { get; set; }
         public string IdRutEmpresa { get; set; }
         public string Username { get; set; }
-        public Nullable<System.DateTime> Fecha { get; set; }
+        public System.DateTime Fecha { get; set; }
     
         public virtual Clientes Clientes { get; set; }
         public virtual ICollection<DetalleFacturas> DetalleFacturas { get; set; }

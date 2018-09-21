@@ -71,7 +71,7 @@ namespace papiro.Negocio
             catch (Exception)
             {
 
-                throw;
+                return null;
             }
         }
 
