@@ -14,6 +14,11 @@ namespace papiro.DALC
     
     public partial class DetalleFacturas
     {
+        public DetalleFacturas()
+        {
+            this.NotaCredito = new HashSet<NotaCredito>();
+        }
+    
         public int IdDetalleFactura { get; set; }
         public Nullable<int> Cantidad { get; set; }
         public int idFactura { get; set; }
@@ -34,5 +39,6 @@ namespace papiro.DALC
     
         public virtual Facturas Facturas { get; set; }
         public virtual Productos Productos { get; set; }
+        public virtual ICollection<NotaCredito> NotaCredito { get; set; }
     }
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="90890cb1-3c80-445e-9eab-466e987b08e1" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="03d7f446-368b-49b3-98fa-4601f0e8c782" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,10 +22,10 @@
     <MetadataSource Address="http://localhost:63996/Autenticacion.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Autenticacion.xsd" MetadataType="Schema" ID="e8b7f679-b1c4-402c-9690-eee22ee31dc2" SourceId="1" SourceUrl="http://localhost:63996/Autenticacion.svc?xsd=xsd1" />
-    <MetadataFile FileName="Autenticacion.disco" MetadataType="Disco" ID="8721ae8c-8a8b-45ee-a2e5-ba6cde270143" SourceId="1" SourceUrl="http://localhost:63996/Autenticacion.svc?disco" />
-    <MetadataFile FileName="Autenticacion1.xsd" MetadataType="Schema" ID="1ad9f935-e004-4243-bef8-33f7e1e29119" SourceId="1" SourceUrl="http://localhost:63996/Autenticacion.svc?xsd=xsd0" />
-    <MetadataFile FileName="Autenticacion.wsdl" MetadataType="Wsdl" ID="f485244b-e5c9-48f9-be7a-71967edf708e" SourceId="1" SourceUrl="http://localhost:63996/Autenticacion.svc?wsdl" />
+    <MetadataFile FileName="Autenticacion.xsd" MetadataType="Schema" ID="4bba6854-9444-44f0-8c73-71933e3cc08b" SourceId="1" SourceUrl="http://localhost:63996/Autenticacion.svc?xsd=xsd1" />
+    <MetadataFile FileName="Autenticacion.disco" MetadataType="Disco" ID="42bf64be-5368-443b-b8d8-34af3a34dfaa" SourceId="1" SourceUrl="http://localhost:63996/Autenticacion.svc?disco" />
+    <MetadataFile FileName="Autenticacion1.xsd" MetadataType="Schema" ID="083e7056-af8a-4aee-ad76-f97179ea7ef8" SourceId="1" SourceUrl="http://localhost:63996/Autenticacion.svc?xsd=xsd0" />
+    <MetadataFile FileName="Autenticacion.wsdl" MetadataType="Wsdl" ID="45880de5-2233-4682-9dc1-1db9715bbf33" SourceId="1" SourceUrl="http://localhost:63996/Autenticacion.svc?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

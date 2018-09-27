@@ -251,9 +251,11 @@ namespace papiro.Negocio
         {
             try
             {
+
                 DALC.Clientes clientes = (from a in db.Clientes
                                           where a.RazonSocial.Equals(this.RazonSocial)
                                           select a).First();
+
 
                 this.RazonSocial = clientes.RazonSocial;
                 this.RutEmpresa = clientes.RutEmpresa;

@@ -51,6 +51,7 @@ namespace papiro.Negocio
             set { _idDepartamento = value; }
         }
 
+        //Metodo para verificar usuario
         public Usuario LoginUsuario(string username, string password)
         {
             try
@@ -75,6 +76,30 @@ namespace papiro.Negocio
             }
         }
 
+
+
+        //Listar todo los deptos
+        public IEnumerable<Object> ReadDepto()
+        {
+            try
+            {
+                var usuarios = (from u in db.Usuarios
+                                join td in db.Departamentos
+                                on u.IdDepartamento equals td.IdDepartamento
+                                select new
+                                {
+                                    td.NombreDepartamento
+                                }).ToList();
+                return usuarios;
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
+        }
+
+        //Listar todo los usuarios
         public IEnumerable<Object> ReadAllUser()
         {
             try
@@ -91,7 +116,7 @@ namespace papiro.Negocio
             catch (Exception)
             {
 
-                throw;
+                return null;
             }
         }
 

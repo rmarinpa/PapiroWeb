@@ -59,7 +59,7 @@ namespace PapiroWeb.Web.Ventas
 
                 lblMensaje.Text = ex.Message;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 lblMensaje.Text = "Error al buscar";
             }
@@ -103,7 +103,7 @@ namespace PapiroWeb.Web.Ventas
 
                 lblMensaje.Text = ex.Message;
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 lblMensaje.Text = "Error al buscar";
             }

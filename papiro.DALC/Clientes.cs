@@ -17,6 +17,7 @@ namespace papiro.DALC
         public Clientes()
         {
             this.Facturas = new HashSet<Facturas>();
+            this.NotaCredito = new HashSet<NotaCredito>();
             this.Ventas = new HashSet<Ventas>();
         }
     
@@ -39,7 +40,9 @@ namespace papiro.DALC
     
         public virtual Ciudades Ciudades { get; set; }
         public virtual Comunas Comunas { get; set; }
+        public virtual ContactosComerciales ContactosComerciales { get; set; }
         public virtual ICollection<Facturas> Facturas { get; set; }
+        public virtual ICollection<NotaCredito> NotaCredito { get; set; }
         public virtual ICollection<Ventas> Ventas { get; set; }
     }
 }

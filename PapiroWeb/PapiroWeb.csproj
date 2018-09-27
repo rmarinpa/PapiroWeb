@@ -142,10 +142,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="img\background_login-f94bf29cb8e076b24630a06a9e6a2a7fd3e1eb32b523c467daaec0399dab18b9.png" />
-    <Content Include="Web\Ventas\GenerarNotaCredito.aspx" />
-    <Content Include="Web\Ventas\ImprimirPedidosNC.aspx" />
-    <Content Include="Web\Ventas\MenuVentas.aspx" />
     <None Include="Connected Services\ServicioAutenticacion\Autenticacion.disco" />
     <None Include="Connected Services\ServicioAutenticacion\configuration91.svcinfo" />
     <None Include="Connected Services\ServicioAutenticacion\configuration.svcinfo" />
@@ -153,6 +149,28 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="img\background_login-f94bf29cb8e076b24630a06a9e6a2a7fd3e1eb32b523c467daaec0399dab18b9.png" />
+    <Content Include="Scripts\esm\popper-utils.js" />
+    <Content Include="Scripts\esm\popper-utils.min.js" />
+    <Content Include="Scripts\esm\popper.js" />
+    <Content Include="Scripts\esm\popper.min.js" />
+    <Content Include="Scripts\popper-utils.js" />
+    <Content Include="Scripts\popper-utils.min.js" />
+    <Content Include="Scripts\popper.js" />
+    <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\umd\popper-utils.js" />
+    <Content Include="Scripts\umd\popper-utils.min.js" />
+    <Content Include="Scripts\umd\popper.js" />
+    <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="Web\Ventas\Clientes.aspx" />
+    <Content Include="Web\Ventas\ConfigUsuario.aspx" />
+    <Content Include="Web\Ventas\ConsultarDespacho.aspx" />
+    <Content Include="Web\Ventas\ConsultarPedidoFactura.aspx" />
+    <Content Include="Web\Ventas\EstadoCuentaCliente.aspx" />
+    <Content Include="Web\Ventas\GenerarNotaCredito.aspx" />
+    <Content Include="Web\Ventas\ImprimirPedidosNC.aspx" />
+    <Content Include="Web\Ventas\MapaDeProducto.aspx" />
+    <Content Include="Web\Ventas\MenuVentas.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -176,19 +194,7 @@
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\esm\popper-utils.js" />
-    <Content Include="Scripts\esm\popper-utils.min.js" />
-    <Content Include="Scripts\esm\popper.js" />
-    <Content Include="Scripts\esm\popper.min.js" />
-    <Content Include="Scripts\popper-utils.js" />
-    <Content Include="Scripts\popper-utils.min.js" />
-    <Content Include="Scripts\popper.js" />
-    <Content Include="Scripts\popper.min.js" />
     <Content Include="Scripts\Reloj.js" />
-    <Content Include="Scripts\umd\popper-utils.js" />
-    <Content Include="Scripts\umd\popper-utils.min.js" />
-    <Content Include="Scripts\umd\popper.js" />
-    <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="Web\Administracion\AutorizarFACT.aspx" />
     <Content Include="Web\Administracion\AutorizarGD.aspx" />
     <Content Include="Web\Administracion\AutorizarNotaCredito.aspx" />
@@ -200,13 +206,8 @@
     <Content Include="Web\Administracion\MenuAdministracion.aspx" />
     <Content Include="Web\Administracion\NotasDePedidos.aspx" />
     <Content Include="Web\Administracion\Productos.aspx" />
-    <Content Include="Web\Administracion\WebForm1.aspx" />
     <Content Include="Web\Index.aspx" />
     <Content Include="Web\Login.aspx" />
-    <Content Include="Scripts\esm\popper.min.js.map" />
-    <Content Include="Scripts\esm\popper.js.map" />
-    <Content Include="Scripts\esm\popper-utils.min.js.map" />
-    <Content Include="Scripts\esm\popper-utils.js.map" />
     <Content Include="Scripts\bootstrap.min.js.map" />
     <Content Include="Scripts\bootstrap.js.map" />
     <Content Include="Scripts\bootstrap.bundle.min.js.map" />
@@ -226,6 +227,10 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <Content Include="Scripts\esm\popper.min.js.map" />
+    <Content Include="Scripts\esm\popper.js.map" />
+    <Content Include="Scripts\esm\popper-utils.min.js.map" />
+    <Content Include="Scripts\esm\popper-utils.js.map" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -365,13 +370,6 @@
     <Compile Include="Web\Administracion\Productos.aspx.designer.cs">
       <DependentUpon>Productos.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Web\Administracion\WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Web\Administracion\WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Web\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -392,6 +390,41 @@
     </Compile>
     <Compile Include="Web\Administracion\RegistroLlamadas.aspx.designer.cs">
       <DependentUpon>RegistroLlamadas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Ventas\Clientes.aspx.cs">
+      <DependentUpon>Clientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Ventas\Clientes.aspx.designer.cs">
+      <DependentUpon>Clientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Ventas\ConfigUsuario.aspx.cs">
+      <DependentUpon>ConfigUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Ventas\ConfigUsuario.aspx.designer.cs">
+      <DependentUpon>ConfigUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Ventas\ConsultarDespacho.aspx.cs">
+      <DependentUpon>ConsultarDespacho.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Ventas\ConsultarDespacho.aspx.designer.cs">
+      <DependentUpon>ConsultarDespacho.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Ventas\ConsultarPedidoFactura.aspx.cs">
+      <DependentUpon>ConsultarPedidoFactura.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Ventas\ConsultarPedidoFactura.aspx.designer.cs">
+      <DependentUpon>ConsultarPedidoFactura.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Ventas\EstadoCuentaCliente.aspx.cs">
+      <DependentUpon>EstadoCuentaCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Ventas\EstadoCuentaCliente.aspx.designer.cs">
+      <DependentUpon>EstadoCuentaCliente.aspx</DependentUpon>
     </Compile>
     <Compile Include="Web\Ventas\GenerarNotaCredito.aspx.cs">
       <DependentUpon>GenerarNotaCredito.aspx</DependentUpon>
@@ -420,6 +453,13 @@
     </Compile>
     <Compile Include="Web\Ventas\Layout.Ventas.Master.designer.cs">
       <DependentUpon>Layout.Ventas.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Ventas\MapaDeProducto.aspx.cs">
+      <DependentUpon>MapaDeProducto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Ventas\MapaDeProducto.aspx.designer.cs">
+      <DependentUpon>MapaDeProducto.aspx</DependentUpon>
     </Compile>
     <Compile Include="Web\Ventas\MenuVentas.aspx.cs">
       <DependentUpon>MenuVentas.aspx</DependentUpon>
@@ -460,9 +500,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="Scripts\index.d.ts" />
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
@@ -480,6 +517,9 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\ServicioAutenticacion\" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

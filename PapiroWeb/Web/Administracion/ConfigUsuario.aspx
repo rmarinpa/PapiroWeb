@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="Configuración de usuario" Language="C#" MasterPageFile="~/Web/Administracion/LayoutAdmin.Master" AutoEventWireup="true" CodeBehind="ConfigUsuario.aspx.cs" Inherits="PapiroWeb.Web.Administracion.ConfigUsuario" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
     <div class="container text-center">
         <h2 class="text-center">Administración de usuarios</h2>
         <div class="col col-lg-auto">
@@ -13,7 +14,7 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <asp:GridView ID="gvUsuario" runat="server" AutoGenerateColumns="False" DataKeyNames="UserName" DataSourceID="EntityDataUsuario" CssClass="table table-borderless" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal">
+                        <asp:GridView ID="gvUsuario" runat="server" AutoGenerateColumns="False" DataKeyNames="UserName" DataSourceID="EntityDataUsuario" CssClass="table table-borderless" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" AllowPaging="True" AllowSorting="True">
                             <Columns>
                                 <asp:CommandField ShowEditButton="True" />
                                 <asp:BoundField DataField="UserName" HeaderText="UserName" ReadOnly="True" SortExpression="UserName" />
@@ -36,7 +37,6 @@
                     </div>
                 </div>
 
-                <div class="card-footer small text-muted">Actualizado: </div>
             </div>
 
             <!-- Fin del DataTable-->

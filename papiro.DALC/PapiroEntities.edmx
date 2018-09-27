@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="PapiroWebModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="PapiroWebModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Ciudades">
           <Key>
             <PropertyRef Name="IdCiudad" />
@@ -87,6 +87,17 @@
           <Property Name="IdRutEmpresa" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Username" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="Fecha" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NotaCredito">
+          <Key>
+            <PropertyRef Name="IdNotaCredito" />
+          </Key>
+          <Property Name="IdNotaCredito" Type="int" Nullable="false" />
+          <Property Name="RutCliente" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IdDetalleFactura" Type="int" Nullable="false" />
+          <Property Name="Observacion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IdUsuario" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="FechaEmision" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="Productos">
           <Key>
@@ -181,6 +192,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Clientes_ContactosComerciales">
+          <End Role="ContactosComerciales" Type="Self.ContactosComerciales" Multiplicity="1" />
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContactosComerciales">
+              <PropertyRef Name="IdContacto" />
+            </Principal>
+            <Dependent Role="Clientes">
+              <PropertyRef Name="IdContactoComercial" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_ContactoComercial_TipoCargo">
           <End Role="TiposCargos" Type="Self.TiposCargos" Multiplicity="1" />
           <End Role="ContactosComerciales" Type="Self.ContactosComerciales" Multiplicity="*" />
@@ -241,6 +264,42 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_NotaCredito_Clientes">
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="1" />
+          <End Role="NotaCredito" Type="Self.NotaCredito" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="RutEmpresa" />
+            </Principal>
+            <Dependent Role="NotaCredito">
+              <PropertyRef Name="RutCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NotaCredito_DetalleFacturas">
+          <End Role="DetalleFacturas" Type="Self.DetalleFacturas" Multiplicity="1" />
+          <End Role="NotaCredito" Type="Self.NotaCredito" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DetalleFacturas">
+              <PropertyRef Name="IdDetalleFactura" />
+            </Principal>
+            <Dependent Role="NotaCredito">
+              <PropertyRef Name="IdDetalleFactura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NotaCredito_Usuarios">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+          <End Role="NotaCredito" Type="Self.NotaCredito" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="UserName" />
+            </Principal>
+            <Dependent Role="NotaCredito">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Productos_TipoProducto">
           <End Role="TipoProducto" Type="Self.TipoProducto" Multiplicity="1" />
           <End Role="Productos" Type="Self.Productos" Multiplicity="*" />
@@ -297,6 +356,7 @@
           <EntitySet Name="Departamentos" EntityType="Self.Departamentos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DetalleFacturas" EntityType="Self.DetalleFacturas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Facturas" EntityType="Self.Facturas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NotaCredito" EntityType="Self.NotaCredito" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Productos" EntityType="Self.Productos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TipoProducto" EntityType="Self.TipoProducto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TiposCargos" EntityType="Self.TiposCargos" Schema="dbo" store:Type="Tables" />
@@ -313,6 +373,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_Clientes_Ciudades" Association="Self.FK_Clientes_Ciudades">
             <End Role="Ciudades" EntitySet="Ciudades" />
+            <End Role="Clientes" EntitySet="Clientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Clientes_ContactosComerciales" Association="Self.FK_Clientes_ContactosComerciales">
+            <End Role="ContactosComerciales" EntitySet="ContactosComerciales" />
             <End Role="Clientes" EntitySet="Clientes" />
           </AssociationSet>
           <AssociationSet Name="FK_ContactoComercial_TipoCargo" Association="Self.FK_ContactoComercial_TipoCargo">
@@ -335,6 +399,18 @@
             <End Role="Clientes" EntitySet="Clientes" />
             <End Role="Facturas" EntitySet="Facturas" />
           </AssociationSet>
+          <AssociationSet Name="FK_NotaCredito_Clientes" Association="Self.FK_NotaCredito_Clientes">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="NotaCredito" EntitySet="NotaCredito" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NotaCredito_DetalleFacturas" Association="Self.FK_NotaCredito_DetalleFacturas">
+            <End Role="DetalleFacturas" EntitySet="DetalleFacturas" />
+            <End Role="NotaCredito" EntitySet="NotaCredito" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NotaCredito_Usuarios" Association="Self.FK_NotaCredito_Usuarios">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="NotaCredito" EntitySet="NotaCredito" />
+          </AssociationSet>
           <AssociationSet Name="FK_Productos_TipoProducto" Association="Self.FK_Productos_TipoProducto">
             <End Role="TipoProducto" EntitySet="TipoProducto" />
             <End Role="Productos" EntitySet="Productos" />
@@ -352,8 +428,7 @@
             <End Role="Ventas" EntitySet="Ventas" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PapiroWebModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -387,7 +462,9 @@
           <Property Name="IdCiudad" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Ciudades" Relationship="Self.FK_Clientes_Ciudades" FromRole="Clientes" ToRole="Ciudades" />
           <NavigationProperty Name="Comunas" Relationship="Self.FK__Clientes__IdComu__5AEE82B9" FromRole="Clientes" ToRole="Comunas" />
+          <NavigationProperty Name="ContactosComerciales" Relationship="Self.FK_Clientes_ContactosComerciales" FromRole="Clientes" ToRole="ContactosComerciales" />
           <NavigationProperty Name="Facturas" Relationship="Self.FK_FacturasVentas_Clientes" FromRole="Clientes" ToRole="Facturas" />
+          <NavigationProperty Name="NotaCredito" Relationship="Self.FK_NotaCredito_Clientes" FromRole="Clientes" ToRole="NotaCredito" />
           <NavigationProperty Name="Ventas" Relationship="Self.FK_Ventas_Clientes" FromRole="Clientes" ToRole="Ventas" />
         </EntityType>
         <EntityType Name="Comunas">
@@ -407,6 +484,7 @@
           <Property Name="Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="IdCargo" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Clientes" Relationship="Self.FK_Clientes_ContactosComerciales" FromRole="ContactosComerciales" ToRole="Clientes" />
           <NavigationProperty Name="TiposCargos" Relationship="Self.FK_ContactoComercial_TipoCargo" FromRole="ContactosComerciales" ToRole="TiposCargos" />
         </EntityType>
         <EntityType Name="Departamentos">
@@ -440,6 +518,7 @@
           <Property Name="Largo" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
           <NavigationProperty Name="Facturas" Relationship="Self.FK_DetalleFacturas_Facturas" FromRole="DetalleFacturas" ToRole="Facturas" />
           <NavigationProperty Name="Productos" Relationship="Self.FK_DetalleFacturas_Productos" FromRole="DetalleFacturas" ToRole="Productos" />
+          <NavigationProperty Name="NotaCredito" Relationship="Self.FK_NotaCredito_DetalleFacturas" FromRole="DetalleFacturas" ToRole="NotaCredito" />
         </EntityType>
         <EntityType Name="Facturas">
           <Key>
@@ -452,6 +531,20 @@
           <NavigationProperty Name="Clientes" Relationship="Self.FK_FacturasVentas_Clientes" FromRole="Facturas" ToRole="Clientes" />
           <NavigationProperty Name="DetalleFacturas" Relationship="Self.FK_DetalleFacturas_Facturas" FromRole="Facturas" ToRole="DetalleFacturas" />
           <NavigationProperty Name="Usuarios" Relationship="Self.FK_Facturas_Usuarios" FromRole="Facturas" ToRole="Usuarios" />
+        </EntityType>
+        <EntityType Name="NotaCredito">
+          <Key>
+            <PropertyRef Name="IdNotaCredito" />
+          </Key>
+          <Property Name="IdNotaCredito" Type="Int32" Nullable="false" />
+          <Property Name="RutCliente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdDetalleFactura" Type="Int32" Nullable="false" />
+          <Property Name="Observacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdUsuario" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FechaEmision" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Clientes" Relationship="Self.FK_NotaCredito_Clientes" FromRole="NotaCredito" ToRole="Clientes" />
+          <NavigationProperty Name="DetalleFacturas" Relationship="Self.FK_NotaCredito_DetalleFacturas" FromRole="NotaCredito" ToRole="DetalleFacturas" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.FK_NotaCredito_Usuarios" FromRole="NotaCredito" ToRole="Usuarios" />
         </EntityType>
         <EntityType Name="Productos">
           <Key>
@@ -506,6 +599,7 @@
           <Property Name="IdDepartamento" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Departamentos" Relationship="Self.FK__Usuario__IdDepar__49C3F6B7" FromRole="Usuarios" ToRole="Departamentos" />
           <NavigationProperty Name="Facturas" Relationship="Self.FK_Facturas_Usuarios" FromRole="Usuarios" ToRole="Facturas" />
+          <NavigationProperty Name="NotaCredito" Relationship="Self.FK_NotaCredito_Usuarios" FromRole="Usuarios" ToRole="NotaCredito" />
         </EntityType>
         <EntityType Name="Ventas">
           <Key>
@@ -545,6 +639,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Clientes_ContactosComerciales">
+          <End Role="ContactosComerciales" Type="Self.ContactosComerciales" Multiplicity="1" />
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContactosComerciales">
+              <PropertyRef Name="IdContacto" />
+            </Principal>
+            <Dependent Role="Clientes">
+              <PropertyRef Name="IdContactoComercial" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_FacturasVentas_Clientes">
           <End Role="Clientes" Type="Self.Clientes" Multiplicity="1" />
           <End Role="Facturas" Type="Self.Facturas" Multiplicity="*" />
@@ -554,6 +660,18 @@
             </Principal>
             <Dependent Role="Facturas">
               <PropertyRef Name="IdRutEmpresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NotaCredito_Clientes">
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="1" />
+          <End Role="NotaCredito" Type="Self.NotaCredito" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="RutEmpresa" />
+            </Principal>
+            <Dependent Role="NotaCredito">
+              <PropertyRef Name="RutCliente" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -617,6 +735,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_NotaCredito_DetalleFacturas">
+          <End Role="DetalleFacturas" Type="Self.DetalleFacturas" Multiplicity="1" />
+          <End Role="NotaCredito" Type="Self.NotaCredito" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DetalleFacturas">
+              <PropertyRef Name="IdDetalleFactura" />
+            </Principal>
+            <Dependent Role="NotaCredito">
+              <PropertyRef Name="IdDetalleFactura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Facturas_Usuarios">
           <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
           <End Role="Facturas" Type="Self.Facturas" Multiplicity="*" />
@@ -626,6 +756,18 @@
             </Principal>
             <Dependent Role="Facturas">
               <PropertyRef Name="Username" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NotaCredito_Usuarios">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+          <End Role="NotaCredito" Type="Self.NotaCredito" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="UserName" />
+            </Principal>
+            <Dependent Role="NotaCredito">
+              <PropertyRef Name="IdUsuario" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -673,6 +815,7 @@
           <EntitySet Name="Departamentos" EntityType="Self.Departamentos" />
           <EntitySet Name="DetalleFacturas" EntityType="Self.DetalleFacturas" />
           <EntitySet Name="Facturas" EntityType="Self.Facturas" />
+          <EntitySet Name="NotaCredito" EntityType="Self.NotaCredito" />
           <EntitySet Name="Productos" EntityType="Self.Productos" />
           <EntitySet Name="TipoProducto" EntityType="Self.TipoProducto" />
           <EntitySet Name="TiposCargos" EntityType="Self.TiposCargos" />
@@ -687,9 +830,17 @@
             <End Role="Comunas" EntitySet="Comunas" />
             <End Role="Clientes" EntitySet="Clientes" />
           </AssociationSet>
+          <AssociationSet Name="FK_Clientes_ContactosComerciales" Association="Self.FK_Clientes_ContactosComerciales">
+            <End Role="ContactosComerciales" EntitySet="ContactosComerciales" />
+            <End Role="Clientes" EntitySet="Clientes" />
+          </AssociationSet>
           <AssociationSet Name="FK_FacturasVentas_Clientes" Association="Self.FK_FacturasVentas_Clientes">
             <End Role="Clientes" EntitySet="Clientes" />
             <End Role="Facturas" EntitySet="Facturas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NotaCredito_Clientes" Association="Self.FK_NotaCredito_Clientes">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="NotaCredito" EntitySet="NotaCredito" />
           </AssociationSet>
           <AssociationSet Name="FK_Ventas_Clientes" Association="Self.FK_Ventas_Clientes">
             <End Role="Clientes" EntitySet="Clientes" />
@@ -711,9 +862,17 @@
             <End Role="Productos" EntitySet="Productos" />
             <End Role="DetalleFacturas" EntitySet="DetalleFacturas" />
           </AssociationSet>
+          <AssociationSet Name="FK_NotaCredito_DetalleFacturas" Association="Self.FK_NotaCredito_DetalleFacturas">
+            <End Role="DetalleFacturas" EntitySet="DetalleFacturas" />
+            <End Role="NotaCredito" EntitySet="NotaCredito" />
+          </AssociationSet>
           <AssociationSet Name="FK_Facturas_Usuarios" Association="Self.FK_Facturas_Usuarios">
             <End Role="Usuarios" EntitySet="Usuarios" />
             <End Role="Facturas" EntitySet="Facturas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NotaCredito_Usuarios" Association="Self.FK_NotaCredito_Usuarios">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="NotaCredito" EntitySet="NotaCredito" />
           </AssociationSet>
           <AssociationSet Name="FK_Productos_TipoProducto" Association="Self.FK_Productos_TipoProducto">
             <End Role="TipoProducto" EntitySet="TipoProducto" />
@@ -821,6 +980,18 @@
                 <ScalarProperty Name="IdRutEmpresa" ColumnName="IdRutEmpresa" />
                 <ScalarProperty Name="Username" ColumnName="Username" />
                 <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NotaCredito">
+            <EntityTypeMapping TypeName="PapiroWebModel.NotaCredito">
+              <MappingFragment StoreEntitySet="NotaCredito">
+                <ScalarProperty Name="IdNotaCredito" ColumnName="IdNotaCredito" />
+                <ScalarProperty Name="RutCliente" ColumnName="RutCliente" />
+                <ScalarProperty Name="IdDetalleFactura" ColumnName="IdDetalleFactura" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="FechaEmision" ColumnName="FechaEmision" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

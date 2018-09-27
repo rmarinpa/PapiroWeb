@@ -16,7 +16,10 @@ namespace PapiroWeb.Web.Administracion
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                lblMensaje.Text = string.Empty;
+            }
         }
 
 
@@ -46,9 +49,9 @@ namespace PapiroWeb.Web.Administracion
                     txtLineaCredito.Text = cliente.LineaCredito;
                     txtDicom.Text = cliente.Dicom;
                     txtAreaObservacion.Text = cliente.Observacion;
-                    txtFechaActualizacion.Text = DateTime.Now.ToShortDateString();
-                    txtFechaIngreso.Text = DateTime.Now.ToShortDateString();
-
+                    txtFechaActualizacion.Text = cliente.FechaActualizacion.ToLongDateString();
+                    txtFechaIngreso.Text = cliente.FechaIngreso.ToLongDateString();
+                    lblMensaje.Text = string.Empty;
                 }
                 else
                 {
@@ -77,7 +80,7 @@ namespace PapiroWeb.Web.Administracion
 
                 lblMensaje.Text = ex.Message;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 lblMensaje.Text = "Error al buscar";
             }
@@ -95,13 +98,24 @@ namespace PapiroWeb.Web.Administracion
                 if (cliente.ReadRazon())
                 {
                     txtRutEmpresa.Text = cliente.RutEmpresa;
-                    txtRazonSocial.Text = cliente.RazonSocial;
                     txtGiro.Text = cliente.Giro;
                     txtDireccionEmpresa.Text = cliente.Direccion;
                     txtTelefonoEmpresa.Text = cliente.TelefonoContacto;
                     ddlComunaEmpresa.SelectedValue = cliente.IdComuna.ToString();
+                    ddlCiudadEmpresa.SelectedValue = cliente.IdCiudad.ToString();
+                    ddlTipoPago.SelectedValue = cliente.IdTipoPago.ToString();
                     txtIDContacto.Text = cliente.IdContactoComercial.ToString();
-
+                    ddlTipoPago.SelectedValue = cliente.IdTipoPago.ToString();
+                    txtCondicionPago.Text = cliente.Condicion.ToString();
+                    txtLineaCredito.Text = cliente.LineaCredito;
+                    txtAreaObservacion.Text = cliente.Observacion;
+                    txtFichaCliente.Text = cliente.FichaCliente;
+                    txtLineaCredito.Text = cliente.LineaCredito;
+                    txtDicom.Text = cliente.Dicom;
+                    txtAreaObservacion.Text = cliente.Observacion;
+                    txtFechaActualizacion.Text = cliente.FechaActualizacion.ToLongDateString();
+                    txtFechaIngreso.Text = cliente.FechaIngreso.ToLongDateString();
+                    lblMensaje.Text = string.Empty;
                 }
                 else
                 {
@@ -113,6 +127,13 @@ namespace PapiroWeb.Web.Administracion
                 if (contactoComercial.Read())
                 {
                     txtNombreContacto.Text = contactoComercial.NombreConta;
+                    txtTelefonoComercial.Text = contactoComercial.Telefono;
+                    txtEmailContacto.Text = contactoComercial.Email;
+                    ddlTipoCargo.SelectedValue = contactoComercial.IdCargo.ToString();
+                }
+                else
+                {
+                    lblMensaje.Text = "No se encuentra contacto comercial";
                 }
 
             }
@@ -121,12 +142,13 @@ namespace PapiroWeb.Web.Administracion
 
                 lblMensaje.Text = ex.Message;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 lblMensaje.Text = "Error al buscar";
             }
 
         }
+
 
 
         protected void btnAgregar_Click(object sender, EventArgs e)
@@ -167,7 +189,7 @@ namespace PapiroWeb.Web.Administracion
 
                 lblMensaje.Text = ex.Message;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 lblMensaje.Text = "Error al registrar cliente";
             }
@@ -204,6 +226,8 @@ namespace PapiroWeb.Web.Administracion
             return clientes;
         }
 
-
+        protected void btnLimpiar_Click(object sender, EventArgs e)
+        {
+        }
     }
 }

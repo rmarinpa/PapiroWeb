@@ -15,6 +15,7 @@ namespace PapiroWeb.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
         }
 
         protected void loginUsuario_Authenticate(object sender, AuthenticateEventArgs e)
@@ -39,6 +40,7 @@ namespace PapiroWeb.Web
                 e.Authenticated = true;
 
                 FormsAuthentication.RedirectFromLoginPage(nombreUsuario, false);
+
             }
 
         }

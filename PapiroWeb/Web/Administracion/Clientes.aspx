@@ -1,7 +1,11 @@
 ﻿<%@ Page Title="Clientes" Language="C#" MasterPageFile="~/Web/Administracion/LayoutAdmin.Master" AutoEventWireup="true" CodeBehind="Clientes.aspx.cs" Inherits="PapiroWeb.Web.Administracion.Clientes" %>
 
 
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
+    <!-- Todo el script, se deben transformar en archivos JS, para sacarlo del código -->
+
     <!--AutoComplete-->
     <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
@@ -250,11 +254,11 @@
             </div>
             <div class="form-group col-md-6">
                 <label for="lblFechaIngreso">Fecha de ingreso</label>
-                <asp:TextBox ID="txtFechaIngreso" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtFechaIngreso" CssClass="form-control" Enabled="false" runat="server"></asp:TextBox>
             </div>
             <div class="form-group col-md-6">
                 <label for="lblFechaActualizacion">Fecha de actualización</label>
-                <asp:TextBox ID="txtFechaActualizacion" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtFechaActualizacion" CssClass="form-control" Enabled="false" runat="server"></asp:TextBox>
             </div>
             <div class="form-group col-md-1">
                 <label for="lblReferencia">Referencia</label>
@@ -290,7 +294,7 @@
         <asp:Button ID="btnAgregar" CssClass="btn btn-primary" runat="server" Text="Agregar" OnClick="btnAgregar_Click" />
         <asp:Button ID="btnModificar" CssClass="btn btn-primary" runat="server" Text="Modificar" />
         <asp:Button ID="btnEliminar" CssClass="btn btn-primary" runat="server" Text="Eliminar" />
-        <asp:Button ID="btnLimpiar" CssClass="btn btn-primary" runat="server" Text="Limpiar" />
+        <asp:Button ID="btnLimpiar" CssClass="btn btn-primary" runat="server" Text="Limpiar" OnClick="btnLimpiar_Click" />
     </div>
 
 </asp:Content>

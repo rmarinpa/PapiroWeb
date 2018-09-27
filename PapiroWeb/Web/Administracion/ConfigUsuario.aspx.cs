@@ -13,6 +13,5 @@ namespace PapiroWeb.Web.Administracion
         {
 
         }
-
     }
 }

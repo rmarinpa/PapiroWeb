@@ -58,13 +58,13 @@
                                 <a class="dropdown-item" href="ConsultarPedidoFactura">
                                     <i class="fa fa-search"></i>
                                     Consultar notas de pedido y factura</a>
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="Clientes">
                                     <i class="fa fa-user"></i>
                                     Clientes</a>
                                 <a class="dropdown-item" href="#">
                                     <i class="fa fa-copy"></i>
                                     Asociar pedido con factura</a>
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="MapaDeProducto">
                                     <i class="fa fa-map"></i>
                                     Mapa de productos</a>
                             </div>
@@ -75,10 +75,10 @@
                                 Otros departamentos
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="EstadoCuentaCliente">
                                     <i class="fa fa-user-check"></i>
                                     Estado de cuenta de Clientes</a>
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="ConsultarDespacho">
                                     <i class="fa fa-question"></i>
                                     Consulta despacho técnico</a>
                                 <a class="dropdown-item" href="#">
@@ -87,7 +87,7 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="MenuVentas">
+                            <a class="nav-link" href="#">
                                 <i class="fa fa-cogs"></i>
                                 Configuración de cuenta</a>
                         </li>
