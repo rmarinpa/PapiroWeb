@@ -49,6 +49,32 @@ namespace papiro.Negocio
             get { return _idCargo; }
             set { _idCargo = value; }
         }
+
+        public bool Create()
+        {
+            try
+            {
+                DALC.ContactosComerciales contactosComerciales = new ContactosComerciales();
+
+                contactosComerciales.NombreContacto = this.NombreConta;
+                contactosComerciales.Telefono = this.Telefono;
+                contactosComerciales.Email = this.Email;
+                contactosComerciales.IdCargo = contactosComerciales.IdCargo;
+
+                db.ContactosComerciales.Add(contactosComerciales);
+                db.SaveChanges();
+
+                return true;
+
+
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+        }
+
         public bool Read()
         {
             try

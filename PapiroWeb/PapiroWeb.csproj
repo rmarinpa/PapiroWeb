@@ -162,10 +162,20 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="Web\Autenticar.aspx" />
+    <Content Include="Web\Cobranza\GestionCheques.aspx" />
+    <Content Include="Web\Cobranza\InformeCobranza.aspx" />
+    <Content Include="Web\Cobranza\InformesDeCobranza.aspx" />
+    <Content Include="Web\Cobranza\EstadoCuentaCliente.aspx" />
+    <Content Include="Web\Cobranza\MenuCobranza.aspx" />
+    <Content Include="Web\Cobranza\ModificacionPago.aspx" />
+    <Content Include="Web\Cobranza\RegistroDePagos.aspx" />
+    <Content Include="Web\Cobranza\ReporteDeIngresos.aspx" />
     <Content Include="Web\Ventas\Clientes.aspx" />
     <Content Include="Web\Ventas\ConfigUsuario.aspx" />
     <Content Include="Web\Ventas\ConsultarDespacho.aspx" />
     <Content Include="Web\Ventas\ConsultarPedidoFactura.aspx" />
+    <Content Include="Web\Ventas\ConsultaServicioTecnico.aspx" />
     <Content Include="Web\Ventas\EstadoCuentaCliente.aspx" />
     <Content Include="Web\Ventas\GenerarNotaCredito.aspx" />
     <Content Include="Web\Ventas\ImprimirPedidosNC.aspx" />
@@ -182,7 +192,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="ApplicationInsights.config">
+    <Content Include="Web\ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="img\Background.jpg" />
@@ -206,7 +216,6 @@
     <Content Include="Web\Administracion\MenuAdministracion.aspx" />
     <Content Include="Web\Administracion\NotasDePedidos.aspx" />
     <Content Include="Web\Administracion\Productos.aspx" />
-    <Content Include="Web\Index.aspx" />
     <Content Include="Web\Login.aspx" />
     <Content Include="Scripts\bootstrap.min.js.map" />
     <Content Include="Scripts\bootstrap.js.map" />
@@ -266,6 +275,7 @@
     <Content Include="Web\Administracion\LayoutAdmin.Master" />
     <Content Include="Web\Ventas\GenerarPedido.aspx" />
     <Content Include="Web\Ventas\Layout.Ventas.Master" />
+    <Content Include="Web\Cobranza\Layout.Cobranza.Master" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -370,12 +380,75 @@
     <Compile Include="Web\Administracion\Productos.aspx.designer.cs">
       <DependentUpon>Productos.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Web\Index.aspx.cs">
-      <DependentUpon>Index.aspx</DependentUpon>
+    <Compile Include="Web\Autenticar.aspx.cs">
+      <DependentUpon>Autenticar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Web\Index.aspx.designer.cs">
-      <DependentUpon>Index.aspx</DependentUpon>
+    <Compile Include="Web\Autenticar.aspx.designer.cs">
+      <DependentUpon>Autenticar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Cobranza\GestionCheques.aspx.cs">
+      <DependentUpon>GestionCheques.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Cobranza\GestionCheques.aspx.designer.cs">
+      <DependentUpon>GestionCheques.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Cobranza\InformeCobranza.aspx.cs">
+      <DependentUpon>InformeCobranza.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Cobranza\InformeCobranza.aspx.designer.cs">
+      <DependentUpon>InformeCobranza.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Cobranza\InformesDeCobranza.aspx.cs">
+      <DependentUpon>InformesDeCobranza.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Cobranza\InformesDeCobranza.aspx.designer.cs">
+      <DependentUpon>InformesDeCobranza.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Cobranza\EstadoCuentaCliente.aspx.cs">
+      <DependentUpon>EstadoCuentaCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Cobranza\EstadoCuentaCliente.aspx.designer.cs">
+      <DependentUpon>EstadoCuentaCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Cobranza\Layout.Cobranza.Master.cs">
+      <DependentUpon>Layout.Cobranza.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Cobranza\Layout.Cobranza.Master.designer.cs">
+      <DependentUpon>Layout.Cobranza.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Cobranza\MenuCobranza.aspx.cs">
+      <DependentUpon>MenuCobranza.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Cobranza\MenuCobranza.aspx.designer.cs">
+      <DependentUpon>MenuCobranza.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Cobranza\ModificacionPago.aspx.cs">
+      <DependentUpon>ModificacionPago.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Cobranza\ModificacionPago.aspx.designer.cs">
+      <DependentUpon>ModificacionPago.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Cobranza\RegistroDePagos.aspx.cs">
+      <DependentUpon>RegistroDePagos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Cobranza\RegistroDePagos.aspx.designer.cs">
+      <DependentUpon>RegistroDePagos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Cobranza\ReporteDeIngresos.aspx.cs">
+      <DependentUpon>ReporteDeIngresos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Cobranza\ReporteDeIngresos.aspx.designer.cs">
+      <DependentUpon>ReporteDeIngresos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Web\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -418,6 +491,13 @@
     </Compile>
     <Compile Include="Web\Ventas\ConsultarPedidoFactura.aspx.designer.cs">
       <DependentUpon>ConsultarPedidoFactura.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Ventas\ConsultaServicioTecnico.aspx.cs">
+      <DependentUpon>ConsultaServicioTecnico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Ventas\ConsultaServicioTecnico.aspx.designer.cs">
+      <DependentUpon>ConsultaServicioTecnico.aspx</DependentUpon>
     </Compile>
     <Compile Include="Web\Ventas\EstadoCuentaCliente.aspx.cs">
       <DependentUpon>EstadoCuentaCliente.aspx</DependentUpon>
@@ -472,7 +552,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Web\AdministracionII\" />
-    <Folder Include="Web\Cobranza\" />
     <Folder Include="Web\Compras\" />
     <Folder Include="Web\Facturacion\" />
     <Folder Include="Web\Logistica\" />

@@ -14,8 +14,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "papiro.Negocio", "papiro.Ne
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutenticacionService", "AutenticacionService\AutenticacionService.csproj", "{4AF0AD54-FCB8-4E16-82A1-583AE665EA8B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "papiro.PruebasUnitarias", "papiro.PruebasUnitarias\papiro.PruebasUnitarias.csproj", "{D7E572FE-0585-4F47-AF61-91788FB8E1EA}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,12 +45,6 @@ Global
 		{4AF0AD54-FCB8-4E16-82A1-583AE665EA8B}.DebugLocal|Any CPU.Build.0 = Debug|Any CPU
 		{4AF0AD54-FCB8-4E16-82A1-583AE665EA8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4AF0AD54-FCB8-4E16-82A1-583AE665EA8B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D7E572FE-0585-4F47-AF61-91788FB8E1EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D7E572FE-0585-4F47-AF61-91788FB8E1EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D7E572FE-0585-4F47-AF61-91788FB8E1EA}.DebugLocal|Any CPU.ActiveCfg = Debug|Any CPU
-		{D7E572FE-0585-4F47-AF61-91788FB8E1EA}.DebugLocal|Any CPU.Build.0 = Debug|Any CPU
-		{D7E572FE-0585-4F47-AF61-91788FB8E1EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D7E572FE-0585-4F47-AF61-91788FB8E1EA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

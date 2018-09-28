@@ -147,9 +147,30 @@ namespace PapiroWeb.Web.Ventas
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
+            // Se traen los datos del cliente
+            try
+            {
+                ContactoComercial contactoComercial = new ContactoComercial();
+
+
+                if (true)
+                {
+
+                }
+
+
+            }
+            catch (ArgumentException ex)
+            {
+
+                lblMensaje.Text = ex.Message;
+            }
+            catch (Exception)
+            {
+                lblMensaje.Text = "Error al agregar cliente";
+            }
 
         }
-
 
         // Metodos para la busqueda de rut con JQUERY
 

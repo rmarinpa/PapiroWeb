@@ -16,4 +16,6 @@
             <asp:Button ID="btnHistorial" CssClass="btn btn-info" runat="server" Text="Historial" />
         </div>
     </div>
+
+
 </asp:Content>
